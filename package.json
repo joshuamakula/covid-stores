@@ -1,7 +1,7 @@
 {
   "name": "covidstore",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the Covid Store where customers come and purchase products and pay in installments",
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -13,6 +13,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Joshua Makula",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuamakula/covid-stores.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joshuamakula/covid-stores/issues"
+  },
+  "homepage": "https://github.com/joshuamakula/covid-stores#readme"
 }

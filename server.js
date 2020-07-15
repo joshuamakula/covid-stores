@@ -13,14 +13,36 @@ app.use(bodyParser.urlencoded({
 }))
 
 // route homepage using fat arrow 
-app.get('/', (req, res) => { // new
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
-    // res.send('Homepage! Hello world.');
+    
+})
+// rout for register sales agent
+app.get('/RegisterAgent', (req, res) => {
+    res.sendFile(__dirname + '/register_sales_agent.html')
+})
+// route to the client subcription page
+app.get('/signUp', (req, res) => {
+    res.sendFile(__dirname + '/client_subscription.html')
+})
+app.post('/signUp', (req, res) => {
+    console.log(req.body)
+    res.redirect('/')
+})
+
+// route to get information for the product
+app.get('/addItem', (req, res) => {
+    res.sendFile(__dirname + '/add_item.html')
+})
+// route to add info from the form
+app.post('/addItem', (req, res) => {
+    console.log(req.body)
+    res.redirect('/')
 })
 
 // route to the login page
 // Get the login form
-app.get('/login', (req, res) => { // new
+app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/login.html')
 })
 
