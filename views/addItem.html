@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Covid Stores</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        #head {
+            text-align: center;
+            color: orange;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+        .innerH{
+            color: red;
+        }
+    </style>
+</head>
+
+<body row justify-content-center>
+    <div class="top-nav-bar">
+        <div class="search-box">
+            <a href="/"><img src="images/logo.png" alt="" class="logo"></a>            
+            <input type="text" class="search-form-control">
+            <span class="input-group-text"></span><i class="fa fa-search"></i></span>
+        </div>
+
+        <div class="menu-bar">
+            <ul>
+                <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="/login">Log In</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--------------------Nav bar---------------------->
+
+    <div class="container">
+        <div class="row">
+            <div class="card-body">
+                <div class="col-md" style="text-align: center;">
+                    <a href="/details">
+                        <button class="btn btn-secondary">purchase Details</button>
+                    </a>
+
+                    <a href="/register">
+                        <button class="btn btn-secondary">Register Sales Agent</button>
+                    </a>
+
+                    <a href="/addItem">
+                        <button class="btn btn-secondary">Add Product</button>
+                    </a>
+                </div>
+            </div>
+            <!------Dashboard------>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-body">
+                    <form action="/addItem" method="POST" name="addItem" id="addItem">
+                        <header class="card-header">
+                            <h1 class="card-title" id="head">Covid Stores</h1>
+                        </header>
+                        <fieldset class="form-group border p-2">
+                            <legend class="w-auto border-primary">Product Info</legend>
+                            <div class="form-group">
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="itemName">Item Name: </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="itemName" id="itemName"
+                                            placeholder="Item name">
+                                        <small id="nameError" class="innerH"></small>
+                                    </div>
+                                </div><!-- form-group -->
+
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="make">Make: </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="itemMake" id="itemMake"
+                                            placeholder="Make">
+                                        <small id="makeError" class="innerH"></small>
+                                    </div>
+
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label" for="entryDate">Date of Entry: </label>
+                                    <div>
+                                        <input class="form-control" name="entryDate" type="date" id="entryDate"
+                                            placeholder="Date of Entry">
+                                        <small id="dateError" class="innerH"></small>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="category">Category: </label>
+
+                                    <select name="category" id="category">
+                                        <option value="0">Select Category</option>
+                                        <option value="1">Furniture</option>
+                                        <option value="2">Fitness Kits</option>
+                                        <option value="3">Machinery</option>
+                                        <option value="4">TV Sets</option>
+                                        <option value="5">Home Theater</option>
+                                    </select>
+                                    <small id="catError" class="innerH"></small>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="serial-number">Serial Number:
+                                    </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="serialNumber" id="serialNumber"
+                                            placeholder="Serial Number">
+                                    </div>
+                                    <small id="serialError" class="innerH"></small>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="price">Price:
+                                    </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="price" id="price"
+                                            placeholder="Price">
+                                    </div>
+                                    <small id="priceError" class="innerH"></small>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="initialPay">Initial Pay:
+                                    </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="initialPay" id="initialPay"
+                                            placeholder="Initial Pay">
+                                    </div>
+                                    <small id="initalError" class="innerH"></small>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="payInterval">Pay Interval:
+                                    </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="payInterval" id="payInterval"
+                                            placeholder="Pay Interval">
+                                    </div>
+                                    <small id="payIntError" class="innerH"></small>
+                                </div><!-- form-group -->
+
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="itemColor">Item Color: </label>
+
+                                    <input type="color" name="itemColor" id="itemColor" placeholder="Item Color">
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="itemDesc">Item Description:
+                                    </label>
+                                    <div>
+                                        <textarea class="form-control" name="itemDesc" id="itemDesc" cols="30" rows="5"
+                                            placeholder="Item Description"></textarea>
+                                    </div>
+
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="numStock">Number in Stock:
+                                    </label>
+                                    <div>
+                                        <input class="form-control" type="text" name="numStock" id="numStock"
+                                            placeholder="Number in Stock">
+                                    </div>
+                                    <small id="stockError" class="innerH"></small>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="form-control-label text-md-right" for="itemPhoto">Item Photo:
+                                    </label>
+
+                                    <input type="file" id="itemPhoto" name="itemPhoto" placeholder="Item Photo">
+
+
+                                </div><!-- form-group -->
+
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-warning btn-block" name="submit" type="submit"
+                                    onclick="">Submit</button>
+                            </div>
+
+                        </fieldset><!-- fieldset-->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------- Footer ------------------>
+    <!-- <div w3-include-html="/include/footer.html"></div> -->
+    <section class="footer">
+        <div class="container tex-center">
+            <div class="row">
+                <div class="col-md-3">
+                    <h1>Useful Links</h1>
+                    <p>Privacy Policy</p>
+                    <p>Terms of use</p>
+                    <p>Return Policy</p>
+                    <p>Discount Coupons</p>
+                </div>
+                <div class="col-md-3">
+                    <h1>Company</h1>
+                    <p>About US</p>
+                    <p>Contact Us</p>
+                    <p>Career</p>
+                    <p>Affiliate</p>
+                </div>
+                <div class="col-md-3">
+                    <h1>Follow Us On</h1>
+                    <p><i class="fa fa-facebook-official"></i> Facebook</p>
+                    <p><i class="fa fa-youtube-play"></i> Youtube</p>
+                    <p><i class="fa fa-linkedin"></i> Linkedin</p>
+                    <p><i class="fa fa-twitter"></i> Twitter</p>
+                </div>
+                <div class="col-md-3 footer-image">
+                    <h1>Download App</h1>
+                    <img src="images/app.png" alt="">
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Made by <i class="fa fa-heart-o"></i>Joshua Makula</p>
+        </div>
+    </section>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script src="/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="/bootstrap/js/popper.min.js"></script>
+    <script src="/js/validate.js"></script>
+    <script>
+        var d = new Date();
+        document.getElementById("entryDate") = d;
+    </script>
+</body>
+
+</html>
