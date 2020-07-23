@@ -11,6 +11,11 @@
             margin: 0 auto;
         }
 
+        body {
+            background-color: #f1f3f4;
+            font-family: sans-serif;
+        }
+
         #head {
             text-align: center;
             color: orange;
@@ -28,21 +33,7 @@
 </head>
 
 <body>
-    <div class="top-nav-bar">
-        <div class="search-box">
-            <a href="/"><img src="images/logo.png" alt="" class="logo"></a>
-            <input type="text" class="search-form-control">
-            <span class="input-group-text"></span><i class="fa fa-search"></i></span>
-        </div>
-
-        <div class="menu-bar">
-            <ul>
-                <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="/login">Log In</a></li>
-            </ul>
-        </div>
-    </div>
+    <div w3-include-html="/includes/nav.html"></div>
     <!--------------------Nav bar---------------------->
 
     <div class="container">
@@ -66,46 +57,54 @@
 
         </div>
         <div class="row">
+
             <div class="col-md-6">
                 <div class="card-body">
-                    <form action="" name="salesAgent" method="POST">
-                        <hearder class="card-header">
+                    <form action="/managerDash" method="POST" name="salesAgent" id="salesAgent">
+                        <header class="card-header">
                             <h1 class="card-title" id="head">Register Sales Agent</h1>
-                        </hearder>
+                        </header>
+
                         <fieldset class="form-group border p-2">
                             <legend class="w-auto border-primary">Agent's Details</legend>
                             <div class="form-group">
                                 <div class="form-group">
                                     <label class="form-control-label" for="firstName">First Name</label>
-                                    <input form-control type="text" name="firstName" id="firstName">
+                                    <input form-control type="text" name="firstName" id="firstName"><br>
+                                    <small class="innerH" id="fname"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="lastName"> Last Name</label>
-                                    <input form-control type="text" name="lastName" id="lastName">
+                                    <input form-control type="text" name="lastName" id="lastName"><br>
+                                    <small class="innerH" id="lname"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="nationalID">national ID. No.</label>
-                                    <input form-control type="text" name="nationalID" id="nationalID">
+                                    <input form-control type="text" name="nationalID" id="nationalID"><br>
+                                    <small class="innerH" id="nID"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="employeeID">employee ID No.</label>
-                                    <input form-control type="text" name="employeeID" id="employeeID">
+                                    <input form-control type="text" name="employeeID" id="employeeID"><br>
+                                    <small class="innerH" id="eID"></small>
                                 </div>
                                 <!----------form-group---------->
                                 <div class="form-group">
                                     <label class="form-control-label" for="empPassword">Password</label>
-                                    <input form-control type="password" name="empPassword" id="empPassword">
+                                    <input form-control type="password" name="empPassword" id="empPassword"><br>
+                                    <small class="innerH" id="pass"></small>
                                 </div>
                                 <!----------form-group---------->
                                 <div class="form-group">
                                     <label class="form-control-label" for="empPasswordAgain">Password Again</label>
-                                    <input form-control type="password" name="empPasswordAgain" id="empPasswordAgain">
+                                    <input form-control type="password" name="empPasswordAgain" id="empPasswordAgain"><br>
+                                    <small class="innerH" id="passAgain"></small>
                                 </div>
                                 <!----------form-group---------->
 
@@ -126,45 +125,12 @@
         </div>
     </div>
     <!----------------- Footer ------------------>
-    <!-- <div w3-include-html="/include/footer.html"></div> -->
-    <section class="footer">
-        <div class="container tex-center">
-            <div class="row">
-                <div class="col-md-3">
-                    <h1>Useful Links</h1>
-                    <p>Privacy Policy</p>
-                    <p>Terms of use</p>
-                    <p>Return Policy</p>
-                    <p>Discount Coupons</p>
-                </div>
-                <div class="col-md-3">
-                    <h1>Company</h1>
-                    <p>About US</p>
-                    <p>Contact Us</p>
-                    <p>Career</p>
-                    <p>Affiliate</p>
-                </div>
-                <div class="col-md-3">
-                    <h1>Follow Us On</h1>
-                    <p><i class="fa fa-facebook-official"></i> Facebook</p>
-                    <p><i class="fa fa-youtube-play"></i> Youtube</p>
-                    <p><i class="fa fa-linkedin"></i> Linkedin</p>
-                    <p><i class="fa fa-twitter"></i> Twitter</p>
-                </div>
-                <div class="col-md-3 footer-image">
-                    <h1>Download App</h1>
-                    <img src="images/app.png" alt="">
-                </div>
-            </div>
-            <hr>
-            <p class="copyright">Made by <i class="fa fa-heart-o"></i>Joshua Makula</p>
-        </div>
-    </section>
+    <div w3-include-html="/includes/footer.html"></div>
 
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/bootstrap/js/popper.min.js"></script>
-    <script src="/bootstrap/js/jquery-3.5.1.slim.min.js"></script>
+
+
     <script src="/js/validate.js"></script>
+    <script src="/js/navnfooter.js"></script>
 </body>
 
 </html>

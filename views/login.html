@@ -11,6 +11,11 @@
             margin: 0 auto;
         }
 
+        body {
+            background-color: #f1f3f4;
+            font-family: sans-serif;
+        }
+
         #login-head {
             text-align: center;
             color: orange;
@@ -24,23 +29,9 @@
 </head>
 
 <body row justify-content-center>
-    <div class="top-nav-bar">
-        <div class="search-box">
-            <a href="/"><img src="images/logo.png" alt="" class="logo"></a>
-            <input type="text" class="search-form-control">
-            <span class="input-group-text"></span><i class="fa fa-search"></i></span>
-        </div>
 
-        <div class="menu-bar">
-            <ul>
-                <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="/login">Log In</a></li>
-            </ul>
-        </div>
-    </div>
     <!--------------------Nav bar---------------------->
-
+    <div w3-include-html="/includes/nav.html"></div>
 
     <div class="container">
         <div class="row">
@@ -64,13 +55,11 @@
 
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="salesAgent" name="agentorstore"
-                                    class="custom-control-input">
+                                <input type="radio" id="salesAgent" name="agentorstore" class="custom-control-input">
                                 <label class="custom-control-label" for="salesAgent">Sales Agent</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="storeManager" name="agentorstore"
-                                    class="custom-control-input">
+                                <input type="radio" id="storeManager" name="agentorstore" class="custom-control-input">
                                 <label class="custom-control-label" for="storeManager">Store Manager</label>
                             </div>
 
@@ -99,48 +88,12 @@
     </div>
 
     <!----------------- Footer ------------------>
-    <!-- <div w3-include-html="/include/footer.html"></div> -->
-    <section class="footer">
-        <div class="container tex-center">
-            <div class="row">
-                <div class="col-md-3">
-                    <h1>Useful Links</h1>
-                    <p>Privacy Policy</p>
-                    <p>Terms of use</p>
-                    <p>Return Policy</p>
-                    <p>Discount Coupons</p>
-                </div>
-                <div class="col-md-3">
-                    <h1>Company</h1>
-                    <p>About US</p>
-                    <p>Contact Us</p>
-                    <p>Career</p>
-                    <p>Affiliate</p>
-                </div>
-                <div class="col-md-3">
-                    <h1>Follow Us On</h1>
-                    <p><i class="fa fa-facebook-official"></i> Facebook</p>
-                    <p><i class="fa fa-youtube-play"></i> Youtube</p>
-                    <p><i class="fa fa-linkedin"></i> Linkedin</p>
-                    <p><i class="fa fa-twitter"></i> Twitter</p>
-                </div>
-                <div class="col-md-3 footer-image">
-                    <h1>Download App</h1>
-                    <img src="images/app.png" alt="">
-                </div>
-            </div>
-            <hr>
-            <p class="copyright">Made by <i class="fa fa-heart-o"></i>Joshua Makula</p>
-        </div>
-    </section>
+    <div w3-include-html="/includes/footer.html"></div>
 
-    <!-- <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="/js/validate.js"></script>
+    <script src="/js/navnfooter.js"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
 </body>
 
 </html>

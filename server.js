@@ -28,16 +28,7 @@ app.get('/manager', (req, res) => {
         root: view
     })
 })
-// route to the client subcription page
-app.get('/signUp', (req, res) => {
-    res.sendFile('/client_subscription.html', {
-        root: view
-    })
-})
-/* app.post('/signUp', (req, res) => {
-    console.log(req.body)
-    res.redirect('/')
-}) */
+
 
 // route to get information for the product
 app.get('/addItem', (req, res) => {
@@ -49,7 +40,7 @@ app.get('/addItem', (req, res) => {
 // route to add info from the form
 app.post('/addItem', (req, res) => {
     console.log(req.body)
-    res.redirect('/')
+    res.redirect('/manager')
 })
 
 // route to register sales agent
@@ -74,6 +65,14 @@ app.get('/login', (req, res) => {
     })
 })
 
+app.post('/managerDash', (req, res) => {
+    console.log(req.body)
+    res.sendFile('/managerDash.html', {
+        root: view
+    })
+
+})
+
 // Listening request from server
 // Post the login form
 app.post('/manager', (req, res) => {
@@ -81,7 +80,7 @@ app.post('/manager', (req, res) => {
     res.sendFile('/managerDash.html', {
         root: view
     })
-    // res.redirect('/managerDash.html')
+    
 })
 
 // Get the login form

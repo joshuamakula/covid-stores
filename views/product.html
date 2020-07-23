@@ -6,13 +6,19 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        background-color: #f1f3f4;
+        font-family: sans-serif;
+    }
+</style>
 </head>
 
 <body>
 
     <div class="top-nav-bar">
         <div class="search-box">
-            <a href="/"><img src="images/logo.png" alt="" class="logo"></a>            
+            <a href="/"><img src="images/logo.png" alt="" class="logo"></a>
             <input type="text" class="form-control">
             <span class="input-group-text"></span><i class="fa fa-search"></i></span>
         </div>
@@ -41,7 +47,7 @@
                         <div class="carousel-inner">
                             <img src="images/tv3.jpg" alt="" class="d-block w-100">
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -49,42 +55,10 @@
     </section>
 
     <!----------------- Footer ------------------>
-    <section class="footer">
-        <div class="container tex-center">
-            <div class="row">
-                <div class="col-md-3">
-                    <h1>Useful Links</h1>
-                    <p>Privacy Policy</p>
-                    <p>Terms of use</p>
-                    <p>Return Policy</p>
-                    <p>Discount Coupons</p>
-                </div>
-                <div class="col-md-3">
-                    <h1>Company</h1>
-                    <p>About US</p>
-                    <p>Contact Us</p>
-                    <p>Career</p>
-                    <p>Affiliate</p>
-                </div>
-                <div class="col-md-3">
-                    <h1>Follow Us On</h1>
-                    <p><i class="fa fa-facebook-official"></i> Facebook</p>
-                    <p><i class="fa fa-youtube-play"></i> Youtube</p>
-                    <p><i class="fa fa-linkedin"></i> Linkedin</p>
-                    <p><i class="fa fa-twitter"></i> Twitter</p>
-                </div>
-                <div class="col-md-3 footer-image">
-                    <h1>Download App</h1>
-                    <img src="images/app.png" alt="">
-                </div>
-            </div>
-            <hr>
-            <p class="copyright">Made by <i class="fa fa-heart-o"></i>Joshua Makula</p>
-        </div>
-    </section>
+    <div w3-include-html="/includes/footer.html"></div>
 
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="/js/validate.js"></script>
+    <script src="/js/navnfooter.js"></script>
 </body>
+
 </html>

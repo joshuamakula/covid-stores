@@ -6,32 +6,31 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    
 
-</style>
 </head>
 
 <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     
     <!-- ---------Nav bar------- -->
-    <div class="top-nav-bar">
-        <div class="search-box">
+    <div w3-include-html="/includes/nav.html"></div>
+    <!-- <div class="top-nav-bar navbar navbar-expand-lg">
+        <div class="search-box" >
             <a href="/"><img src="images/logo.png" alt="" class="logo"></a>
             
             <input type="text" class="search-form-control">
-            <span class="input-group-text"></span><i class="fa fa-search"></i></span>
+            <span class="input-group-text"><i class="fa fa-search"> Search</i></span>
+            
         </div>
 
-        <div class="menu-bar">
+         <div class="menu-bar">
             <ul>
                 <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
                 <li><a href="#">Sign Up</a></li>
                 <li><a href="/login">Log In</a></li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <!-- Featured Products -->
     <section class="feature-categories">
@@ -406,7 +405,8 @@
     </section>
 
     <!----------------- Footer ------------------>
-    <section class="footer">
+    <div w3-include-html="/includes/footer.html"></div>
+    <!-- <section class="footer">
         <div class="container tex-center">
             <div class="row">
                 <div class="col-md-3">
@@ -438,12 +438,13 @@
             <hr>
             <p class="copyright">Made by <i class="fa fa-heart-o"></i>Joshua Makula</p>
         </div>
-    </section>
+    </section> -->
 
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="/js/scrolltotop.js"></script>
+    <script src="/js/navnfooter.js"></script>
 </body>
 
 </html>
