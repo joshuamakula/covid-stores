@@ -4,7 +4,7 @@
     validateAddItem();
 }) */
 
-function validateAddItem() {
+/* function validateAddItem() {
     // Declaring valiables for add item
     itemName = document.addItem.itemName;
     itemMake = document.addItem.itemMake;
@@ -78,13 +78,13 @@ function validateAddItem() {
         document.getElementById("stockError").innerHTML = "Number of Items in stock should be a number.";
         // alert('Number of Items in stock should be a number.');
     }
-}
+} */
 
 function registersalesAgent() {
-
+    // event.preventDefault()
     // declaring sales Agent variables
     firstName = document.salesAgent.firstName;
-    lastName = document.salesAgent.lastName;
+    username = document.salesAgent.username;
     nationalID = document.salesAgent.nationalID;
     employeeID = document.salesAgent.employeeID;
     empPassword = document.salesAgent.empPassword;
@@ -96,14 +96,17 @@ function registersalesAgent() {
         firstName.style.border = '1px solid red';
         document.getElementById("fname").innerHTML = "First Name of the item should characters only, no numbers";
         alert('First Name of the item should characters only, no numbers');
+
+        return false;
     }
 
     // validating Agents Last Name
-    var a_lastName = /^[A-Za-z]+$/;
-    if (!lastName.value.match(a_lastName)) {
-        lastName.style.border = '1px solid red';
+    var a_username = /^[A-Za-z]+$/;
+    if (!username.value.match(a_username)) {
+        username.style.border = '1px solid red';
         document.getElementById("lname").innerHTML = "Last Name of the item should characters only, no numbers";
-        // alert('Last Name of the item should characters only, no numbers');
+        
+        return false;
     }
 
     // validatin Agents National ID
@@ -111,13 +114,13 @@ function registersalesAgent() {
     if (!nationalID.value.match(carNum)) {
         nationalID.style.border = '1px solid red';
         document.getElementById("nID").innerHTML = "Enter valid National ID";
-        // alert('Enter valid National ID');
+        
         // validating national id length
         if (nationalID.value.length < 13 || nationalID.value.length > 13) {
             nationalID.style.border = '1px solid red';
-            // document.getElementById("eID").innerHTML = "Enter valid National ID";
-            // alert('Enter valid National ID');
+          return false;
         }
+        return false;
     }
 
     // Validating Passwords
@@ -127,91 +130,9 @@ function registersalesAgent() {
         document.getElementById("pass").innerHTML = "Password Mis-match";
         document.getElementById("passAgain").innerHTML = "Password Mis-match";
 
-        // alert('Password Mis-match');
+        return false;
     }
 
 
 }
 
-function purchaseDetails() {
-    // Declaring variables
-    cName = document.purDetails.cName;
-    clocation = document.purDetails.clocation;
-    phone = document.purDetails.phone;
-    email = document.purDetails.email;
-    nationalID = document.purDetails.nationalID;
-    itemName = document.purDetails.itemName;
-    initialPay = document.purDetails.initialPay;
-    serialNumber = document.purDetails.serialNumber;
-    payDate = document.purDetails.payDate;
-    nextDate = document.purDetails.nextDate;
-    refNumber = document.purDetails.refNumber;
-    purchaseReceipt = document.purDetails.purchaseReceipt;
-
-    // validating Item Name
-    var p_itemName = /^[A-Za-z]+$/;
-    if (!itemName.value.match(p_itemName)) {
-        itemName.style.border = '1px solid red';
-        alert('Name of the item should characters only, no numbers');
-    }
-
-    // validating location
-    var p_clocation = /^[A-Za-z]+$/;
-    if (!clocation.value.match(p_clocation)) {
-        clocation.style.border = '1px solid red';
-        alert('Enter Customer location');
-    }
-
-    // validating customer phone
-    var phoneno = /^\d{10}$/;
-    if (!phone.value.match(phoneno)) {
-        phone.style.border = '1px solid red';
-        alert('Incorrect Phone number format');
-    }
-
-    // validatin Agents National ID
-    var carNum = /^[0-9A-Z]+$/;
-    if (!nationalID.value.match(carNum)) {
-        nationalID.style.border = '1px solid red';
-        alert('Enter valid National ID');
-        // validating national id length
-        if (nationalID.value.length < 13 || nationalID.value.length > 13) {
-            nationalID.style.border = '1px solid red';
-            alert('National ID should be 13 Alpha-numerals');
-        }
-    }
-
-    // validating Initial Pay
-    if (!initialPay.value.match(decimal)) {
-        initialPay.style.border = '1px solid red';
-        alert('Initial Payment should end with .00');
-    }
-
-    // validating Item Name
-    var p_itemName = /^[A-Za-z]+$/;
-    if (!itemName.value.match(p_itemName)) {
-        itemName.style.border = '1px solid red';
-        alert('Name of the item should characters only, no numbers');
-    }
-
-    var num = /^[0-9]+$/;
-
-    // validating Referee Number
-    if (!refNumber.value.match(num)) {
-        refNumber.style.border = '1px solid red';
-        alert('Enter correct Referee Number');
-    }
-
-    // validating purchase Receipt
-    if (!purchaseReceipt.value.match(num)) {
-        purchaseReceipt.style.border = '1px solid red';
-        alert('Incorrect Purchase Receipt');
-    }
-
-    // validating email
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (!email.value.match(mailformat)) {
-        email.style.border = '1px solid red';
-        alert('Enter a valid email address');
-    }
-}

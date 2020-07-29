@@ -1,0 +1,100 @@
+title Covid Store
+link(rel='stylesheet', href='/css/nav.css')
+link(rel='stylesheet', href='/css/style.css')
+link(rel='stylesheet', type='text/css', href='/bootstrap/css/bootstrap.min.css')
+link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+style.
+  
+  #head {
+   			color: orange;
+   			text-align: center;
+   		}
+  
+button#myBtn(onclick='topFunction()', title='Go to top') Top
+//  ---------Nav bar------- 
+.top-nav-bar.navbar.navbar-expand-lg
+  a(href='/')
+    img.logo(src='/images/logo.png', alt)
+  .search-box
+    input.search-form-control(type='text')
+    span.input-group-text
+      i.fa.fa-search Search
+.container
+  .bg-light
+    h1#head Customer Details List
+  .row
+    .col-md
+        table.table
+            thead.thead-light
+                tr
+                    th(scope='col') #
+                    th(scope='col') Name
+                    th(scope='col') Location
+                    th(scope='col') Phone No.
+                    th(scope='col') Email                        
+                    th(scope='col') NIN
+                    th(scope='col') Itemms Name
+                    th(scope='col') Initial Pay
+                    th(scope='col') Ref Number 
+                    th
+            tbody
+                each customerlist in customerlists
+                    tr
+                        th(scope='row')
+                        td #{customerlist.cName}
+                        td #{customerlist.clocation}
+                        td #{customerlist.phone}
+                        td #{customerlist.email}
+                        td #{customerlist.nationalID}
+                        td #{customerlist.itemName}
+                        td #{customerlist.initialPay}
+                        td #{customerlist.refNumber}                        
+                        td 
+                            form(method="post" action='/details/delete')
+                                input(type="hidden", placeholder="", name="id", value=customerlist._id)
+                                button.btn.btn-dark.btn-block(type="submit") Delete
+                        
+
+section.footer
+  .container.tex-center
+    .row
+      .col-md-3
+        h1 Useful Links
+        p Privacy Policy
+        p Terms of use
+        p Return Policy
+        p Discount Coupons
+      .col-md-3
+        h1 Company
+        p About US
+        p Contact Us
+        p Career
+        p Affiliate
+      .col-md-3
+        h1 Follow Us On
+        p
+          i.fa.fa-facebook-official
+          |  Facebook
+        p
+          i.fa.fa-youtube-play
+          |  Youtube
+        p
+          i.fa.fa-linkedin
+          |  Linkedin
+        p
+          i.fa.fa-twitter
+          |  Twitter
+      .col-md-3.footer-image
+        h1 Download App
+        img(src='/images/app.png', alt)
+    hr
+    p.copyright
+      | Made by 
+      i.fa.fa-heart-o
+      | Joshua Makula
+
+script(src='bootstrap/js/bootstrap.js')
+script(src='bootstrap/js/jquery-3.5.1.slim.min.js')
+script(src='bootstrap/js/popper.min.js')
+script(src='/js/scrolltotop.js')
+script(src='/js/navnfooter.js')

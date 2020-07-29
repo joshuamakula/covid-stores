@@ -37,80 +37,74 @@
     <!--------------------Nav bar---------------------->
 
     <div class="container">
-        <div class="row">
-            <div class="card-body">
-                <div class="col-md" style="text-align: center;">
-                    <a href="/details">
-                        <button class="btn btn-secondary">purchase Details</button>
-                    </a>
-
-                    <a href="/register">
-                        <button class="btn btn-secondary">Register Sales Agent</button>
-                    </a>
-
-                    <a href="/addItem">
-                        <button class="btn btn-secondary">Add Product</button>
-                    </a>
+                <div class="row">
+                    <div class="col">
+                        <div class="card-body">
+                            <header class="card-header">
+                                <h1 class="card-title" id="head">Register Sales Agent</h1>
+                            </header>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!------Side Bar------>
 
-        </div>
-        <div class="row">
+                <div class="row">
+                    <!------Side Bar------>
+                    <div class="col-md-2">
+                        <div w3-include-html="/includes/sidebar.html"></div>
+                    </div>
 
             <div class="col-md-6">
-                <div class="card-body">
-                    <form action="/managerDash" method="POST" name="salesAgent" id="salesAgent">
-                        <header class="card-header">
-                            <h1 class="card-title" id="head">Register Sales Agent</h1>
-                        </header>
+                
+                    <form action="/register/agents" method="POST" name="salesAgent" id="salesAgent">
+                        
 
                         <fieldset class="form-group border p-2">
                             <legend class="w-auto border-primary">Agent's Details</legend>
                             <div class="form-group">
                                 <div class="form-group">
-                                    <label class="form-control-label" for="firstName">First Name</label>
-                                    <input form-control type="text" name="firstName" id="firstName"><br>
+                                    <label class="form-control-label" for="firstName">Name</label>
+                                    <input type="text" name="firstName" id="firstName"><br>
                                     <small class="innerH" id="fname"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="lastName"> Last Name</label>
-                                    <input form-control type="text" name="lastName" id="lastName"><br>
+                                    <label class="form-control-label" for="lastName"> User Name</label>
+                                    <input type="text" name="username"
+                                        id="username"><br>
                                     <small class="innerH" id="lname"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="nationalID">national ID. No.</label>
-                                    <input form-control type="text" name="nationalID" id="nationalID"><br>
+                                    <label class="form-control-label" for="nationalID">National ID. No.</label>
+                                    <input type="text" name="nationalID" id="nationalID"><br>
                                     <small class="innerH" id="nID"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
-                                    <label class="form-control-label" for="employeeID">employee ID No.</label>
-                                    <input form-control type="text" name="employeeID" id="employeeID"><br>
+                                    <label class="form-control-label" for="employeeID">Employee ID No.</label>
+                                    <input type="text" name="employeeID" id="employeeID"><br>
                                     <small class="innerH" id="eID"></small>
                                 </div>
                                 <!----------form-group---------->
                                 <div class="form-group">
                                     <label class="form-control-label" for="empPassword">Password</label>
-                                    <input form-control type="password" name="empPassword" id="empPassword"><br>
+                                    <input type="password" name="password" id="password"><br>
                                     <small class="innerH" id="pass"></small>
                                 </div>
                                 <!----------form-group---------->
                                 <div class="form-group">
                                     <label class="form-control-label" for="empPasswordAgain">Password Again</label>
-                                    <input form-control type="password" name="empPasswordAgain" id="empPasswordAgain"><br>
+                                    <input type="password" name="empPasswordAgain" id="empPasswordAgain"><br>
                                     <small class="innerH" id="passAgain"></small>
                                 </div>
                                 <!----------form-group---------->
 
                                 <div class="form-group">
                                     <input class="btn btn-warning btn-block" type="Submit"
-                                        onclick="registersalesAgent()">
+                                        onclick="return registersalesAgent()">
                                 </div>
                                 <!----------form-group---------->
 

@@ -21,12 +21,20 @@
             color: orange;
         }
 
+        .form-inputt {
+            border: 1px solid gray !important;
+        }
+
         label {
             font-weight: bold;
         }
 
         legend {
             font-weight: bold;
+        }
+
+        a :hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -36,124 +44,129 @@
     <!--------------------Nav bar---------------------->
 
     <div class="container">
+        <!-- Title -->
         <div class="row">
-            <div class="card-body">
-                <div class="col-md" style="text-align: center;">
-                    <a href="/details">
-                        <button class="btn btn-secondary">purchase Details</button>
-                    </a>
-
-                    <a href="/register">
-                        <button class="btn btn-secondary">Register Sales Agent</button>
-                    </a>
-
-                    <a href="/addItem">
-                        <button class="btn btn-secondary">Add Product</button>
-                    </a>
+            <div class="col">
+                <div class="card-body">
+                    <header class="card-header">
+                        <h1 class="card-title" id="head">Purchase Details</h1>
+                    </header>
                 </div>
             </div>
-            <!------Side Bar------>
-
         </div>
+
         <div class="row">
+            <!------Side Bar------>
+            <div class="col-md-2">
+                <div w3-include-html="/includes/sidebar.html"></div>
+            </div>
 
             <div class="col-md-6">
-                <div class="card-body">
-                    <form action="" method="POST" name="purDetails">
-                        <header class="card-header">
-                            <h1 class="card-title" id="head">Purchase Details</h1>
-                        </header>
-                        <fieldset class="form-group border p-2">
-                            <legend class="w-auto border-primary">Customer Info</legend>
+                <!-- <div class="card-body"> -->
+                <form action="/details" method="POST" name="purDetails" id="purDetails">
+
+                    <fieldset class="form-group border p-2">
+                        <legend class="w-auto">Customer Info</legend>
+                        <div class="form-group">
+
                             <div class="form-group">
+                                <label class="form-control-label" for="cName">Customer Name: </label>
+                                <input class="form-control form-inputt" type="text" name="cName" id="cName"
+                                    placeholder="Customer name">
+                                <small class="innerH" id="cNamei"></small>
+                            </div><!-- form-group -->
 
-                                <div class="form-group">
-                                    <label class="form-control-label" for="cName">Customer Name: </label>
-                                    <input class="form-control" type="text" name="cName" id="cName"
-                                        placeholder="Customer name">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="clocation">Customer Location: </label>
-                                    <input class="form-control" type="text" name="clocation" id="clocation"
-                                        placeholder="Customer Location">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="phone">Phone Number: </label>
-                                    <input class="form-control" type="text" name="phone" id="phone"
-                                        placeholder="0712010101">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="email">Email: </label>
-                                    <input class="form-control" type="text" name="email" id="email"
-                                        placeholder="customer@xuz.com">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="nationalID">National ID: </label>
-                                    <input class="form-control" type="text" name="nationalID" id="nationalID"
-                                        placeholder="National ID Number">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="itemName">Item Name : </label>
-                                    <input class="form-control" type="text" name="itemName" id="itemName"
-                                        placeholder="Item Name">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="initialPay">Initial Pay: </label>
-                                    <input class="form-control" type="text" name="initialPay" id="initialPay"
-                                        placeholder="000.00">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="serialNumber">Item Serial Number: </label>
-                                    <input class="form-control" type="text" name="serialNumber" id="serialNumber"
-                                        placeholder="Serial Number">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="payDate">Date of Pay: </label>
-                                    <input class="form-control" type="date" name="payDate" id="payDate"
-                                        placeholder="Date of Pay">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="refNumber">Referee Number:
-                                    </label>
-                                    <input class="form-control" type="text" name="refNumber" id="refNumber"
-                                        placeholder="Referee Number">
-                                </div><!-- form-group -->
-
-                                <div class="form-group">
-                                    <label class="form-control-label" for="purchaseReceipt">Purchase Receipt:
-                                    </label>
-                                    <input class="form-control" type="text" name="purchaseReceipt" id="purchaseReceipt"
-                                        placeholder="Purchase Receipt">
-                                </div><!-- form-group -->
-
-                            </div>
                             <div class="form-group">
-                                <button class="btn btn-warning btn-block" name="submit" type="submit"
-                                    onclick="purchaseDetails()">Submit</button>
-                            </div>
+                                <label class="form-control-label" for="clocation">Customer Location: </label>
+                                <input class="form-control form-inputt" type="text" name="clocation" id="clocation"
+                                    placeholder="Customer Location">
+                                <small class="innerH" id="clocationi"></small>
+                            </div><!-- form-group -->
 
-                        </fieldset>
-                        <!--------fieldset------->
+                            <div class="form-group">
+                                <label class="form-control-label" for="phone">Phone Number: </label>
+                                <input class="form-control form-inputt" type="text" name="phone" id="phone"
+                                    placeholder="0712010101" >
+                                <small class="innerH" id="phonei"></small>
+                            </div><!-- form-group -->
 
-                    </form>
-                </div>
+                            <div class="form-group">
+                                <label class="form-control-label" for="email">Email: </label>
+                                <input class="form-control form-inputt" type="text" name="email" id="email"
+                                    placeholder="customer@xuz.com" >
+                                <small class="innerH" id="emaili"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="nationalID">National ID: </label>
+                                <input class="form-control form-inputt" type="text" name="nationalID" id="nationalID"
+                                    placeholder="National ID Number" >
+                                <small class="innerH" id="nationalIDi"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="itemName">Item Name : </label>
+                                <input class="form-control form-inputt" type="text" name="itemName" id="itemName"
+                                    placeholder="Item Name" >
+                                <small class="innerH" id="itemNamei"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="initialPay">Initial Pay: </label>
+                                <input class="form-control form-inputt" type="text" name="initialPay" id="initialPay"
+                                    placeholder="000.00" >
+                                <small class="innerH" id="initialPayi"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="serialNumber">Item Serial Number: </label>
+                                <input class="form-control" type="text" name="serialNumber" id="serialNumber"
+                                    placeholder="Serial Number" >
+                                <small class="innerH" id="serialNumberi"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="payDate">Date of Pay: </label>
+                                <input class="form-control form-inputt" type="date" name="payDate" id="payDate"
+                                    placeholder="Date of Pay" >
+                                <small class="innerH" id="payDatei"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="refNumber">Referee Number:
+                                </label>
+                                <input class="form-control form-inputt" type="text" name="refNumber" id="refNumber"
+                                    placeholder="Referee Number" >
+                                <small class="innerH" id="refNumberi"></small>
+                            </div><!-- form-group -->
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="purchaseReceipt">Purchase Receipt:
+                                </label>
+                                <input class="form-control form-inputt" type="text" name="purchaseReceipt"
+                                    id="purchaseReceipt" placeholder="Purchase Receipt" >
+                                <small class="innerH" id="purchaseReceipti"></small>
+                            </div><!-- form-group -->
+
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-warning btn-block" name="submit" type="submit"
+                                onclick="return purchaseDetailsValidation()">Submit</button>
+                        </div>
+
+                    </fieldset>
+                    <!--------fieldset------->
+
+                </form>
             </div>
         </div>
+    </div>
     </div>
 
     <!----------------- Footer ------------------>
     <div w3-include-html="/includes/footer.html"></div>
 
-    <script src="/js/validate.js"></script>
+    <script src="/js/validatePurchaseDetails.js"></script>
     <script src="/js/navnfooter.js"></script>
 
 </body>

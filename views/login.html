@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card-body">
-                    <form action="manager" method="POST">
+                    <form action="/login" method="POST">
                         <header class="card-header">
                             <h1 class="card-title" id="login-head">Covid Stores</h1>
                         </header>
@@ -47,26 +47,17 @@
 
 
                             <div class="form-group">
-                                <label class="col-form-label text-md-right" for="userName">User Name</label>
+                                <label class="col-form-label text-md-right" for="username">User Name</label>
                                 <div class="">
-                                    <input class="form-control" type="text" name="userName" id="userName"
+                                    <input class="form-control" type="text" name="username" id="username"
                                         placeholder="User Name">
                                 </div>
 
                             </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="salesAgent" name="agentorstore" class="custom-control-input">
-                                <label class="custom-control-label" for="salesAgent">Sales Agent</label>
-                            </div>
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="storeManager" name="agentorstore" class="custom-control-input">
-                                <label class="custom-control-label" for="storeManager">Store Manager</label>
-                            </div>
-
                             <div class="form-group">
-                                <label class="col-form-label text-md-right" for="userPass">Password</label>
+                                <label class="col-form-label text-md-right" for="password">Password</label>
                                 <div class="">
-                                    <input class="form-control" type="password" name="userPass" id="userPass"
+                                    <input class="form-control" type="password" name="password" id="password"
                                         placeholder="Password">
                                 </div>
 
