@@ -20,4 +20,6 @@ router.post('/', passport.authenticate('local'), (req, res) => {
     res.redirect('/manager');
 })
 
+
+
 module.exports = router;

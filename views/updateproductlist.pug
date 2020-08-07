@@ -1,0 +1,113 @@
+doctype html
+html
+  head
+    title Covid Stores
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    style.
+      * {
+      margin: 0 auto;
+      }
+      body {
+      background-color: #f1f3f4;
+      font-family: sans-serif;
+      }
+      #head {
+      text-align: center;
+      color: orange;
+      }
+      label {
+      font-weight: bold;
+      width: 40%;
+      float: left;
+      }
+      legend {
+      font-weight: bold;
+      }
+  body(row="" justify-content-center="")
+    //- ------------------Nav bar--------------------
+    //- div(w3-include-html="/includes/nav.html")
+    .container
+      //- Title
+      .row
+        .col
+          .card-body
+            header.card-header
+              h1#head.card-title Add Product Item
+      .row
+        //- ----Side Bar----
+        .col-md-2
+        //-   div(w3-include-html="/includes/sidebar.html")
+        .col-md-6
+        each product in productlists
+          form#addItem(action="/addItem/update/"+product._id method="POST" name="addItem" enctype="multipart/form-data")
+            fieldset.form-group.border.p-2
+              legend.w-auto.border-primary Product Info
+              .form-group
+                .form-group
+                  label.form-control-label(for="C") Item Name: 
+                  input#itemName(type="text" name="itemName" value=product.itemName)
+                  small#nameError.innerH
+                //- form-group
+                .form-group
+                  label.form-control-label(for="make") Make: 
+                  input#itemMake(type="text" name="itemMake" value=product.itemMake)
+                  small#makeError.innerH
+                //- // form-group
+                .form-group
+                  label.form-control-label(for="entryDate") Date of Entry: 
+                  input#entryDate(name="entryDate" type="date" value=product.entryDate)
+                  small#dateError.innerH
+                //- form-group
+                .form-group
+                  label.form-control-label(for="category") Category: 
+                  select#category(name="category")
+                    option(value="0") Select Category
+                    option(value="1") Furniture
+                    option(value="2") Fitness Kits
+                    option(value="3") Machinery
+                    option(value="4") TV Sets
+                    option(value="5") Home Theater
+                  small#catError.innerH
+                //- form-group
+                .form-group
+                  label.form-control-label(for="serial-number")
+                    | Serial Number:
+                  input#serialNumber(type="text" name="serialNumber" value=product.serialNumber)
+                  small#serialError.innerH
+                //- form-group
+                .form-group
+                  label.form-control-label(for="price")
+                    | Price:
+                  input#price(type="text" name="price" value=product.price)
+                  small#priceError.innerH
+                //- form-group
+                .form-group
+                  label.form-control-label(for="itemColor") Item Color: 
+                  input#itemColor(type="text" name="itemColor" value=product.itemColor)
+                //- form-group
+                .form-group
+                  label.form-control-label(for="itemDesc")
+                    | Item Description:
+                  textarea#itemDesc(name="itemDesc" cols="23" rows="2" placeholder="Item Description" value=product.itemDesc)
+                //- form-group
+                .form-group
+                  label.form-control-label(for="numStock")
+                    | Number in Stock:
+                .form-group
+                  input#numStock(type="text" name="numStock" value=product.numStock)
+                  small#stockError.innerH
+                //- form-group
+                .form-group
+                  label.form-control-label(for="itemPhoto")
+                    | Item Photo:
+                  input#itemPhoto(type="file" name="itemPhoto" value=product.itemPhoto)
+                //- form-group
+              .form-group
+                button.btn.btn-warning.btn-block(name="submit" type="submit" onclick="return validateAddItem()") Submit
+            //- fieldset
+    //- --------------- Footer ----------------
+    //- div(w3-include-html="/includes/footer.html")
+    script(src="/js/validateAddItem.js")
+    script(src="/js/navnfooter.js")

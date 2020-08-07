@@ -23,8 +23,15 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
   .bg-light
     h1#head Covid Stores Product List
   .row
+    
     .col-md
-        table.table(contenteditable="true")
+        form.search(action='/addItem/itemSearch')
+                div.form-row
+                    div.col-md-8
+                        input.form-control(name='itemName' placeholder="Enter your search term(itemName) ...")
+                    div.col-md-4
+                        input.btn.btn-dark.btn-block(type="submit")
+        table.table
             thead.thead-light
                 tr
                     th(scope='col') #
@@ -38,8 +45,10 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                     th(scope='col') Photo
                     th
                     th
+                    th
             tbody
                 each productlist in productlists
+                
                     tr
                         th(scope='row')
                         td #{productlist.itemName}
@@ -51,9 +60,12 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                         td #{productlist.numStock}
                         td 
                           img(src=productlist.itemPhoto, alt="", srcset="" width="100")
+                        td
+                          form(method="get" action='/addItem/sale/'+productlist._id)                            
+                            button.btn.btn-dark.btn-block(type="submit") Sell
                         td 
-                          form(method="post" action='/addItem/update')
-                            input(type="hidden", placeholder="", name="id", value=productlist._id)
+                          form(method="get" action='/addItem/productUpdate/'+productlist._id)
+                            //- input(type="hidden", placeholder="", name="id", value=productlist._id)
                             button.btn.btn-dark.btn-block(type="submit") Update
                         td 
                           form(method="post" action='/addItem/delete')

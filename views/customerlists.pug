@@ -33,8 +33,9 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                     th(scope='col') Phone No.
                     th(scope='col') Email                        
                     th(scope='col') NIN
-                    th(scope='col') Itemms Name
-                    th(scope='col') Initial Pay
+                    th(scope='col') Items
+                    th(scope='col') Price
+                    th(scope='col') Paid
                     th(scope='col') Ref Number 
                     th
             tbody
@@ -47,6 +48,7 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                         td #{customerlist.email}
                         td #{customerlist.nationalID}
                         td #{customerlist.itemName}
+                        td #{customerlist.price}
                         td #{customerlist.initialPay}
                         td #{customerlist.refNumber}                        
                         td 

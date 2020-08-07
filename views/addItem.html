@@ -55,7 +55,7 @@
                 <div w3-include-html="/includes/sidebar.html"></div>
             </div>
 
-            
+
             <div class="col-md-6">
 
                 <form action="/addItem" method="POST" name="addItem" id="addItem" enctype="multipart/form-data">
@@ -84,7 +84,7 @@
 
                             <div class="form-group">
                                 <label class="form-control-label" for="entryDate">Date of Entry: </label>
-                                <input name="entryDate" type="date" id="entryDate">
+                                <input name="entryDate" type="text" id="entryDate" value=today>
                                 <small id="dateError" class="innerH"></small>
                             </div><!-- form-group -->
 
@@ -118,8 +118,8 @@
 
                             <div class="form-group">
                                 <label class="form-control-label" for="itemColor">Item Color: </label>
-
                                 <input type="text" name="itemColor" id="itemColor">
+                                <small id="colorError" class="innerH"></small>
                             </div><!-- form-group -->
 
                             <div class="form-group">
@@ -127,6 +127,7 @@
                                 </label>
                                 <textarea name="itemDesc" id="itemDesc" cols="23" rows="2"
                                     placeholder="Item Description"></textarea>
+                                <small id="descError" class="innerH"></small>
                             </div><!-- form-group -->
 
                             <div class="form-group">
@@ -140,6 +141,7 @@
                                 <label class="form-control-label" for="itemPhoto">Item Photo:
                                 </label>
                                 <input type="file" id="itemPhoto" name="itemPhoto">
+                                <small id="photoError" class="innerH"></small>
                             </div><!-- form-group -->
 
                         </div>
@@ -161,6 +163,10 @@
 
     <script src="/js/validateAddItem.js"></script>
     <script src="/js/navnfooter.js"></script>
+    <script>
+        var date = new Date();
+        var today = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    </script>
 
 </body>
 

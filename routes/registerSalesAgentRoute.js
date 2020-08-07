@@ -9,43 +9,33 @@ const Registration = mongoose.model('Registration')
 
 
 var view = "./views/"
-// route to register sales agent
-router.get('/', (req, res) => {
-    res.sendFile('/registerSalesAgent.html', {
-        root: view
-    })
+
+
+// Register sales agent route
+router.get('/', async (req, res) => {
+    if (req.session.user) {
+
+        try {
+            let items = await Registration.find()
+            if (req.query.firstName) {
+                items = await Registration.find({
+                    firstName: req.query.firstName
+                })
+            }
+            res.sendFile('/registerSalesAgent.html', {
+                root: view
+            })
+        } catch (err) {
+            res.status(400).send("Unauthorized Access");
+        }
+
+    } else {
+        console.log("cant find session")
+        res.redirect('/login')
+    }
 })
 
-// saving data to database while still executing
-/* router.post('/', async (req, res) => {
-    const registration = new Registration(req.body);
-    try {
-        await registration.save()
-        console.log(req.body)
-        res.redirect('/register/agents')
-    } catch (err) {
-        res.send('Sorry! Something went wrong.');
-        console.log(err)
-    }
-
-}) */
-
-// Getting the user list
-/* router.get('/agents', async (req, res) => {
-
-    // handling any runtime error
-    try {
-        const items = await Registration.find()
-        res.render('agents', {
-            agents: items
-        });
-
-    } catch (err) {
-        res.status(400).send('No agents registered yet!');
-
-    }
-}) */
-
+// Sales Agents list route
 router.get('/agents', async (req, res) => {
     if (req.session.user) {
 
@@ -57,7 +47,7 @@ router.get('/agents', async (req, res) => {
                 })
             }
             res.render('agents', {
-                users: items,
+                agents: items,
                 currentUser: req.session.user
             })
         } catch (err) {
@@ -70,6 +60,7 @@ router.get('/agents', async (req, res) => {
     }
 })
 
+// Sales agents route
 router.post("/agents", async (req, res) => {
     try {
         const items = new Registration(req.body);
@@ -96,6 +87,7 @@ router.post("/delete", async (req, res) => {
         res.status(400).send("Unable to delete to database");
     }
 });
+
 
 
 

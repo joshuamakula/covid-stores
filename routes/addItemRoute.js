@@ -23,14 +23,8 @@ const upload = multer({
 
 
 var view = "./views/"
-// route to get information for the product
-router.get('/', (req, res) => {
-    res.sendFile('/addItem.html', {
-        root: view
-    })
-})
-
-/* router.get('/', async (req, res) => {
+// route to add product
+router.get('/', async (req, res) => {
     if (req.session.user) {
 
         try {
@@ -41,8 +35,7 @@ router.get('/', (req, res) => {
                 })
             }
             res.sendFile('/addItem.html', {
-                users: items,
-                currentUser: req.session.user
+                root: view
             })
         } catch (err) {
             res.status(400).send("unable to find items in the database");
@@ -52,13 +45,13 @@ router.get('/', (req, res) => {
         console.log("cant find session")
         res.redirect('/login')
     }
-}) */
+})
 
 // Saving to the database
 router.post('/', upload.single('itemPhoto'), async (req, res) => {
     console.log(req.file);
     const addItem = new AddItem({
-        itemMake: req.body.itemMake,
+        itemName: req.body.itemName,
         itemMake: req.body.itemMake,
         entryDate: req.body.entryDate,
         category: req.body.category,
@@ -91,6 +84,23 @@ router.get('/productlists', async (req, res) => {
     }
 })
 
+// Search route
+router.get('/itemSearch', async (req, res) => {
+    try {
+        let items = await AddItem.find()
+        if (req.query.itemName) {
+            items = await AddItem.find({
+                itemName: req.query.itemName
+            })
+        }
+        res.render('productlists', {
+            productlists: items
+        })
+    } catch (err) {
+        res.status(400).send("unable to find items in the database");
+    }
+})
+
 // deleting from the Product list
 router.post('/delete', async (req, res) => {
     try {
@@ -103,18 +113,66 @@ router.post('/delete', async (req, res) => {
     }
 })
 
-// Updating the Product list
-router.post('/update', async (req, res) => {
-    const changedEntry = req.body;
+//  Product update route
+router.get('/productUpdate/:id', async (req, res) => {
     try {
-        await AddItem.updateOne({
-            _id: req.params.id, $set: changedEntry
+        let items = await AddItem.find({
+            _id: req.params.id
         })
-        res.redirect("back")
+        res.render('updateproductlist', {
+            productlists: items
+        })
     } catch (error) {
+        console.log(error)
         res.status(400).send("Unable to update")
     }
 })
+
+//  Sells route
+router.get('/sale/:id', async (req, res) => {
+    try {
+        let items = await AddItem.find({
+            _id: req.params.id
+        })
+        res.render('sale', {
+            productlists: items
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send("Unable to get sale page")
+    }
+})
+
+// Updating the Product list
+router.post('/update/:id', upload.single('itemPhoto'), async (req, res) => {
+    // const changedEntry = req    
+    try {
+        await AddItem.updateOne({
+            _id: req.params.id
+        }, {
+                $set: 
+                {
+                itemName: req.body.itemName,
+                itemMake: req.body.itemMake,
+                entryDate: req.body.entryDate,
+                category: req.body.category,
+                serialNumber: req.body.serialNumber,
+                price: req.body.price,
+                itemColor: req.body.itemColor,
+                itemDesc: req.body.itemDesc,
+                numStock: req.body.numStock,
+                itemPhoto: req.file.path
+            }
+        })
+        console.log(req.body)
+        res.redirect("/addItem/productlists")
+    } catch (error) {
+        console.log(error)
+        res.status(400).send("Unable to update")
+    }
+})
+
+
 
 
 // export module

@@ -14,7 +14,7 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
 //  ---------Nav bar------- 
 .top-nav-bar.navbar.navbar-expand-lg
   a(href='/')
-    img.logo(src='images/logo.png', alt)
+    img.logo(src='/images/logo.png', alt)
   .search-box
     input.search-form-control(type='text')
     span.input-group-text
@@ -23,29 +23,30 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
   .bg-light
     h1#head Registered Sales Agents
   .row
+    
+
     .col-md
         table.table
             thead.thead-light
-                    tr
-                        th(scope='col') #
-                        th(scope='col') First Name
-                        th(scope='col') last Name
-                        th(scope='col') National ID No
-                        th(scope='col') Employee ID No
-                        th(scope='col') Password
-                        th
+                tr
+                    th(scope='col') #
+                    th(scope='col') First Name
+                    th(scope='col') User Name
+                    th(scope='col') National ID No
+                    th(scope='col') Employee ID No
+                    th
             tbody
-                each agent in agents
+                  each agent in agents
                     tr
                         th(scope='row')
                         td #{agent.firstName}
-                        td #{agent.lastName}
+                        td #{agent.username}
                         td #{agent.nationalID}
                         td #{agent.employeeID}
                         td 
-                           form(method="post" action='/register/delete')
-                               input(type="hidden", placeholder="", name="id", value=agent._id)
-                               button.btn.btn-dark.btn-block(type="submit") Delete
+                            form(method="post" action='/register/delete')
+                                input(type="hidden", placeholder="", name="id", value=agent._id)
+                                button.btn.btn-dark.btn-block(type="submit") Delete
 
 
 section.footer
@@ -79,7 +80,7 @@ section.footer
           |  Twitter
       .col-md-3.footer-image
         h1 Download App
-        img(src='images/app.png', alt)
+        img(src='/images/app.png', alt)
     hr
     p.copyright
       | Made by 

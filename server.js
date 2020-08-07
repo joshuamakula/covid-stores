@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+const multer = require('multer');
 const expressSession = require('express-session')({
     secret: 'secret',
     resave: false,
@@ -21,6 +22,9 @@ const customerDetailsRoute = require('./routes/purchaseDetailsRoute');
 require('./models/purchasedetailsModel');
 
 const loginRoute = require('./routes/loginroute');
+
+const AddItem = mongoose.model('AddItem');
+const Registration = mongoose.model('Registration')
 
 // instantiating express
 const app = express();
@@ -44,7 +48,8 @@ passport.deserializeUser(Register.deserializeUser());
 mongoose.connect('mongodb://localhost:27017/covidStore', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex: true,
 }, function (err) {
     if (err) throw err;
     else
@@ -66,6 +71,7 @@ var view = "./views/"
 // defining the directory with static files
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/addItem/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 // agents list route 
@@ -89,64 +95,106 @@ app.get('/customerlists', (req, res) => {
     })
 })
 
-
+//logout route
+app.get('/logout', (req, res) => {
+    if (req.session) {
+        req.session.destroy(function (err) {
+            if (err) {
+                // failed to destroy session
+            } else {
+                return res.redirect('/')
+            }
+        })
+    }
+})
 
 
 
 // route homepage using fat arrow 
-app.get('/', (req, res) => {
-    res.render('index.pug');
+// app.get('/', (req, res) => {
+//     res.render('index.pug');
 
+// })
+
+// Display items on product page
+app.get('/', async (req, res) => {
+    try {
+        const items = await AddItem.find()
+        res.render('index', {
+            productlists: items
+        })
+    } catch (err) {
+        res.status(400).send('Product list is empty. Add some products')
+    }
 })
+
 // route to store manger dash board
-app.get('/manager', (req, res) => {
-    res.sendFile('/managerDash.html', {
-        root: view
-    })
-})
+app.get('/manager', async(req, res) => {
+            if (req.session.user) {
+
+                try {
+                    
+                    if (req.query.firstName) {
+                        items = await Registration.find({
+                            firstName: req.query.firstName
+                        })
+                    }
+
+                    res.sendFile('/managerDash.html', {
+                        root: view
+                    })
+                    } catch (err) {
+                        res.status(400).send("unreachable dashboard");
+                    }
+
+                    } else {
+                        console.log("cant find session")
+                        res.redirect('/login')
+                    }
+                })
 
 
 
-app.post('/managerDash', (req, res) => {
-    console.log(req.body)
-    res.sendFile('/managerDash.html', {
-        root: view
-    })
+/*             app.post('/managerDash', (req, res) => {
+                console.log(req.body)
+                res.sendFile('/managerDash.html', {
+                    root: view
+                })
 
-})
+            })
 
-// Listening request from server
-// Post the login form
-app.post('/manager', (req, res) => {
-    console.log(req.body)
-    res.sendFile('/managerDash.html', {
-        root: view
-    })
+            // Listening request from server
+            // Post the login form
+            app.post('/manager', (req, res) => {
+                console.log(req.body)
+                res.sendFile('/managerDash.html', {
+                    root: view
+                })
 
-})
+            }) */
 
-// Get the login form
-app.get('/sales', (req, res) => {
-    res.sendFile('/salesAgentDash.html', {
-        root: view
-    })
-})
+            // Get the login form
+            app.get('/sales', (req, res) => {
+                res.sendFile('/salesAgentDash.html', {
+                    root: view
+                })
+            })
 
 
-// path parameters
-app.get('/pathparams/:name', (req, res) => {
-    res.send('My path param is ' + req.params.name);
-});
+            // path parameters
+            app.get('/pathparams/:name', (req, res) => {
+                res.send('My path param is ' + req.params.name);
+            });
 
-// Query Parameter
-app.get('/queryparams', (req, res) => {
-    res.send('My query param is ' + req.query.name + ' and ' + req.query.village);
-});
+            // Query Parameter
+            app.get('/queryparams', (req, res) => {
+                res.send('My query param is ' + req.query.name + ' and ' + req.query.village);
+            });
 
-// No page found error
-app.get('*', (req, res) => {
-    res.send('Ooops! No page found');
-});
+            // No page found error
+            app.get('*', (req, res) => {
+                res.send('Ooops! No page found');
+            });
 
-// creating the server
-app.listen(4000, () => console.log('Covid Stores listening on port 4000!'));
+            // creating the server
+            app.listen(4000, () => console.log('Covid Stores listening on port 4000!'));

@@ -14,13 +14,13 @@ function validateAddItem() {
     itemPhoto = document.addItem.itemPhoto;
 
 
-
+    var objRegex = /^[0-9]+$/;
+    var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
     // validating Item Name
-    var p_itemName = /^[A-Za-z]+$/;
-    if (!itemName.value.match(p_itemName)) {
+    if (!itemName.value.match(alpha)) {
         itemName.style.border = '1px solid red';
-        document.getElementById("nameError").innerHTML = "Name of the item should characters only, no numbers";
-        
+        document.getElementById("nameError").innerHTML = "Item name should be filled with characters only";
+
         return false;
     }
 
@@ -45,7 +45,7 @@ function validateAddItem() {
     }
 
     // validating the price
-    var objRegex = /^[0-9]+$/;
+
     if (!price.value.match(objRegex)) {
         price.style.border = '1px solid red';
         document.getElementById("priceError").innerHTML = "Price should be a number";
@@ -53,27 +53,36 @@ function validateAddItem() {
         return false;
     }
 
-    // validating the initial pay
-    if (!initialPay.value.match(objRegex)) {
-        initialPay.style.border = '1px solid red';
-        document.getElementById("initalError").innerHTML = "Inital Pay should be a number ending with .00";
-
+    var char = /^[A-Za-z]+$/;
+    // validating color
+    if (!itemColor.value.match(char)) {
+        itemColor.style.border = '1px solid red';
+        document.getElementById("colorError").innerHTML = "Enter correct item";
         return false;
     }
 
-    // validating the pay interval
-    if (!payInterval.value.match(objRegex)) {
-        payInterval.style.border = '1px solid red';
-        document.getElementById("payIntError").innerHTML = "Pay Interval should be a number.";
+    // Validating product description
+    if (itemDesc.value.length == "") {
+        itemDesc.style.border = '1px solid red';
+        document.getElementById("descError").innerHTML = "Item description required.";
 
         return false;
     }
 
     // validating number of items in stock
-    if (!numStock.value.match(objRegex)) {
+    var num = /^[0-9]+$/;
+    if (!numStock.value.match(num)) {
         numStock.style.border = '1px solid red';
         document.getElementById("stockError").innerHTML = "Number of Items in stock should be a number.";
-       
+
+        return false;
+    }
+
+    // Validating item Photo
+    if (itemPhoto.value.length == "") {
+        itemPhoto.style.border = '1px solid red';
+        document.getElementById("photoError").innerHTML = "Add item photo.";
+
         return false;
     }
 }

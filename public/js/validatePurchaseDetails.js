@@ -6,12 +6,17 @@ function purchaseDetailsValidation() {
     email = document.purDetails.email;
     nationalID = document.purDetails.nationalID;
     itemName = document.purDetails.itemName;
+    price = document.purDetails.price;
     initialPay = document.purDetails.initialPay;
     serialNumber = document.purDetails.serialNumber;
     payDate = document.purDetails.payDate;
     nextDate = document.purDetails.nextDate;
     refNumber = document.purDetails.refNumber;
     purchaseReceipt = document.purDetails.purchaseReceipt;
+
+    
+
+    balance = price - initialPay
 
     // validating Item Name
     var p_cName = /^[A-Za-z]+$/;
@@ -64,8 +69,8 @@ function purchaseDetailsValidation() {
     }
 
     // validating Item Name
-    var p_itemName = /^[A-Za-z]+$/;
-    if (!itemName.value.match(p_itemName)) {
+    var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
+    if (!itemName.value.match(alpha)) {
         itemName.style.border = '1px solid red';
         document.getElementById("itemNamei").innerHTML = "Enter correct item";
 
@@ -79,6 +84,12 @@ function purchaseDetailsValidation() {
 
         return false;
     }
+
+    if (initialPay.value < (price / 2)) {
+        initialPay.style.border = '1px solid red';
+        document.getElementById("initialPayi").innerHTML = "Initial pay must be atleast 50% of the price";
+    }
+
     // validating Iem serial number
     var sNum = /^[0-9A-Z]+$/;
     if (!serialNumber.value.match(sNum)) {

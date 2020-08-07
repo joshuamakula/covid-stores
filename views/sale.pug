@@ -1,0 +1,123 @@
+doctype html
+html
+  head
+    title Covid Stores
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    style.
+      * {
+      margin: 0 auto;
+      }
+      body {
+      background-color: #f1f3f4;
+      font-family: sans-serif;
+      }
+      #head {
+      text-align: center;
+      color: orange;
+      }
+      .form-inputt {
+      border: 1px solid gray !important;
+      }
+      label {
+      font-weight: bold;
+      }
+      legend {
+      font-weight: bold;
+      }
+      a :hover {
+      text-decoration: none;
+      }
+  body(row="" justify-content-center="")
+    div(w3-include-html="/includes/nav.html")
+    // ------------------Nav bar--------------------
+    .container
+      // Title
+      .row
+        .col
+          .card-body
+            header.card-header
+              h1#head.card-title Purchase Details
+      .row
+        // ----Side Bar----
+        .col-md-2
+          div(w3-include-html="/includes/sidebar.html")
+        .col-md-6            
+          form#purDetails(action="/details" method="POST" name="purDetails")
+            fieldset.form-group.border.p-2
+              legend.w-auto Customer Info              
+              .form-group
+                .form-group
+                  label.form-control-label(for="cName") Customer Name: 
+                  input#cName.form-control.form-inputt(type="text" name="cName")
+                  small#cNamei.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="clocation") Customer Location: 
+                  input#clocation.form-control.form-inputt(type="text" name="clocation")
+                  small#clocationi.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="phone") Phone Number: 
+                  input#phone.form-control.form-inputt(type="text" name="phone")
+                  small#phonei.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="email") Email: 
+                  input#email.form-control.form-inputt(type="text" name="email")
+                  small#emaili.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="nationalID") National ID: 
+                  input#nationalID.form-control.form-inputt(type="text" name="nationalID")
+                  small#nationalIDi.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="itemName") Item Name:
+                  each productlist in productlists             
+                    input#itemName.form-control.form-inputt(type="text" name="itemName" value=productlist.itemName)
+                  small#itemNamei.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="price") Cost Price:
+                  each productlist in productlists
+                    input#price.form-control.form-inputt(type="text" name="price" value=productlist.price)
+                  small#pricei.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="initialPay") Initial Pay:
+                  input#initialPay.form-control.form-inputt(type="text" name="initialPay")
+                  small#initialPayi.innerH
+                // form-group
+                  input(type="hidden", placeholder="", name="id", value=productlist._id)
+                .form-group
+                  label.form-control-label(for="serialNumber") Item Serial Number:
+                  each productlist in productlists 
+                    input#serialNumber.form-control(type="text" name="serialNumber" value=productlist.serialNumber)
+                  small#serialNumberi.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="payDate") Date of Pay: 
+                  input#payDate.form-control.form-inputt(type="date" name="payDate")
+                  small#payDatei.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="refNumber")
+                    | Referee Number:
+                  input#refNumber.form-control.form-inputt(type="text" name="refNumber")
+                  small#refNumberi.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="purchaseReceipt")
+                    | Purchase Receipt:
+                  input#purchaseReceipt.form-control.form-inputt(type="text" name="purchaseReceipt")
+                  small#purchaseReceipti.innerH
+                // form-group
+              .form-group
+                button.btn.btn-warning.btn-block(name="submit" type="submit" onclick="return purchaseDetailsValidation()") Submit
+          // ------fieldset-----
+    // --------------- Footer ----------------
+    div(w3-include-html="/includes/footer.html")
+    script(src="/js/validatePurchaseDetails.js")
+    script(src="/js/navnfooter.js")

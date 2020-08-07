@@ -2,13 +2,47 @@ doctype html
 html
 	head
 		title Covid Store
-		link(rel="stylesheet" href="/css/style.css")
+		
+		link(rel="stylesheet" type="text/css" href="/css/style.css")
+		link(rel="stylesheet" type="text/css" href="/css/nav.css")
 		link(rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css")
 		link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
 	body
 		button#myBtn(onclick="topFunction()" title="Go to top") Top
-		// ---------Nav bar-------
+		//- ---------Nav bar-------
 		div(w3-include-html="/includes/nav.html")
+
+		section(class="new-products")
+			div(class="container")
+				div(class="title-box")
+					h2 LTPP	
+		each productlist in productlists
+			-var count = 0;
+			div(class="row")
+			if count <= 2
+				div(class="col-md-3" style="float:left")
+				
+					div(class="product-top")
+						img(src=productlist.itemPhoto, alt="", style="width:250px")
+						div(class="overlay-right")
+								button(type="button" class="btn btn-secondary" title="Quick Shop")
+									i(class="fa fa-eye")
+								button(type="button" class="btn btn-secondary" title="Add to Wishlist")
+									i(class="fa fa-heart-o")
+								button(type="button" class="btn btn-secondary" title="Add to Cart")
+									i(class="fa fa-shopping-cart") 
+						
+					div(class="product-bottom text-center")
+						i(class="fa fa-star")
+						i(class="fa fa-star")
+						i(class="fa fa-star")
+						i(class="fa fa-star")
+						i(class="fa fa-star-half-o")
+						h3 #{productlist.itemName}
+						h5 #{productlist.price}
+						-count++
+
+		
 		// Featured Products
 		section(class="feature-categories")
 			div(class="container")
@@ -248,6 +282,93 @@ html
 							h3 Black sofa
 							h5 UGX 250,000
 		// --------------- Website features ----------------
+
+
+
+		section(class="on-sale")
+			div(class="container")
+				div(class="title-box")
+					h2 On Sale
+				div(class="row")
+					div(class="col-md-3")
+						div(class="product-top")
+							img(src="images/iphone.jpg" alt="")
+							div(class="overlay-right")
+								button(type="button" class="btn btn-secondary" title="Quick Shop")
+									i(class="fa fa-eye")
+								button(type="button" class="btn btn-secondary" title="Add to Wishlist")
+									i(class="fa fa-heart-o")
+								button(type="button" class="btn btn-secondary" title="Add to Cart")
+									i(class="fa fa-shopping-cart")
+						div(class="product-bottom text-center")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star-half-o")
+							h3 Iphone Keyboard
+							h5 UGX 700,000
+					div(class="col-md-3")
+						div(class="product-top")
+							img(src="images/mills.jpg" alt="")
+							div(class="overlay-right")
+								button(type="button" class="btn btn-secondary" title="Quick Shop")
+									i(class="fa fa-eye")
+								button(type="button" class="btn btn-secondary" title="Add to Wishlist")
+									i(class="fa fa-heart-o")
+								button(type="button" class="btn btn-secondary" title="Add to Cart")
+									i(class="fa fa-shopping-cart")
+						div(class="product-bottom text-center")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							h3 Folding Treadmill
+							h5 UGX 1,200,000
+					div(class="col-md-3")
+						div(class="product-top")
+							img(src="images/shoe.jpg" alt="")
+							div(class="overlay-right")
+								button(type="button" class="btn btn-secondary" title="Quick Shop")
+									i(class="fa fa-eye")
+								button(type="button" class="btn btn-secondary" title="Add to Wishlist")
+									i(class="fa fa-heart-o")
+								button(type="button" class="btn btn-secondary" title="Add to Cart")
+									i(class="fa fa-shopping-cart")
+						div(class="product-bottom text-center")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star-half-o")
+							h3 White Sneakers
+							h5 UGX 30,000
+					div(class="col-md-3")
+						div(class="product-top")
+							img(src="images/sofa.jpg" alt="")
+							div(class="overlay-right")
+								button(type="button" class="btn btn-secondary" title="Quick Shop")
+									i(class="fa fa-eye")
+								button(type="button" class="btn btn-secondary" title="Add to Wishlist")
+									i(class="fa fa-heart-o")
+								button(type="button" class="btn btn-secondary" title="Add to Cart")
+									i(class="fa fa-shopping-cart")
+						div(class="product-bottom text-center")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star")
+							i(class="fa fa-star-half-o")
+							i(class="fa fa-star-o")
+							h3 Black sofa
+							h5 UGX 250,000
+		// --------------- New Products ----------------
+		
+    		
+			
+		
+			
+
 section.footer
 	.container.tex-center
 		.row

@@ -25,7 +25,15 @@ const customerDetailsSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
+    price: {
+        type: Number,
+        trim: true,
+    },
     initialPay: {
+        type: Number,
+        trim: true,
+    },
+    balance: {
         type: Number,
         trim: true,
     },

@@ -83,6 +83,7 @@
 function registersalesAgent() {
     // event.preventDefault()
     // declaring sales Agent variables
+    
     firstName = document.salesAgent.firstName;
     username = document.salesAgent.username;
     nationalID = document.salesAgent.nationalID;
@@ -91,12 +92,11 @@ function registersalesAgent() {
     empPasswordAgain = document.salesAgent.empPasswordAgain;
 
     // validating Agents First Name
-    var a_firstName = /^[A-Za-z]+$/;
-    if (!firstName.value.match(a_firstName)) {
+    var mynum = /^[A-Za-z]+$/;
+    if (!firstName.value.match(mynum)) {
         firstName.style.border = '1px solid red';
         document.getElementById("fname").innerHTML = "First Name of the item should characters only, no numbers";
-        alert('First Name of the item should characters only, no numbers');
-
+        
         return false;
     }
 

@@ -31,9 +31,10 @@
     </style>
 </head>
 
-<body row justify-content-center>
+<body>
 
     <!--------------------Nav bar---------------------->
+    <div w3-include-html="/includes/nav.html"></div>
 
     <div class="container">
         <div class="row">
@@ -43,34 +44,54 @@
                         <h1 class="card-title" id="head">Store manager's dash board</h1>
                     </header>
                     <div class="row">
-                        <div class="card-body">
-                            <div class="col-md" style="text-align: center;">
-                                <a href="/details">
-                                    <button class="btn btn-secondary">purchase Details</button>
-                                </a>
-
-                                <a href="/register">
-                                    <button class="btn btn-secondary">Register Sales Agent</button>
-                                </a>
-
-                                <a href="/addItem">
-                                    <button class="btn btn-secondary">Add Product</button>
-                                </a>
-                                <a href="/register/agents">
-                                    <button class="btn btn-secondary">Agents List</button>
-                                </a>
-                                <a href="/addItem/productlists">
-                                    <button class="btn btn-secondary">Product List</button>
-                                </a>
-                            </div>
+                        
+                        <div style="margin-right: 2px;">
+                            <form action="/details">
+                                <button class="btn btn-secondary">purchase Details</button>
+                            </form>
                         </div>
-                        <!------Side Bar------>
+
+                        <div style="margin-right: 2px;">
+                            <form action="/register">
+                                <button class="btn btn-secondary">Register Sales Agent</button>
+                            </form>
+                        </div>
+
+                        <div style="margin-right: 2px;">
+                            <form action="/addItem">
+                                <button class="btn btn-secondary">Add Product</button>
+                            </form>
+                        </div>
+
+                        <div style="margin-right: 2px;">
+                            <form action="/register/agents">
+                                <button class="btn btn-secondary">Agents List</button>
+                            </form>
+                        </div>
+
+                        <div style="margin-right: 2px;">
+                            <form action="/addItem/productlists">
+                                <button class="btn btn-secondary">Product List</button>
+                            </form>
+                        </div>
+                        <div class="">
+                            <form action="/details/customerlists">
+                                <button class="btn btn-secondary btn-block">Customers List</button>
+                            </form>
+                        </div>
+                        <div class="">
+                            <form action="/logout">
+                                <button class="btn btn-secondary btn-block">Log Out</button>
+                            </form>
+                        </div>
 
                     </div>
 
 
                 </div>
             </div>
+
+            
         </div>
     </div>
     <!----------------- Footer ------------------>

@@ -55,7 +55,8 @@
 
             <div class="col-md-6">
                 
-                    <form action="/register/agents" method="POST" name="salesAgent" id="salesAgent">
+                    <form action="/register/agents" method="POST" name="salesAgent" id="salesAgent"
+                        onsubmit="return registersalesAgent()">
                         
 
                         <fieldset class="form-group border p-2">
@@ -103,8 +104,7 @@
                                 <!----------form-group---------->
 
                                 <div class="form-group">
-                                    <input class="btn btn-warning btn-block" type="Submit"
-                                        onclick="return registersalesAgent()">
+                                    <input class="btn btn-warning btn-block" type="submit">
                                 </div>
                                 <!----------form-group---------->
 

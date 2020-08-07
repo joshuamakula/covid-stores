@@ -23,7 +23,7 @@
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     box-shadow: none !important;
-    width: 30%;
+    width: 100%;
 }
 
 .input-group-text {
@@ -39,7 +39,7 @@
 
 .search-box {
     display: inline-flex;
-    width: 60%;
+    width: 20%;
 }
 
 .fa-search {
@@ -87,7 +87,7 @@
     }
 
     .search-box {
-        width: 100%;
+        width: 64%;
     }
 
     .search-form-control {
