@@ -37,3 +37,12 @@ registrationSchema.plugin(passportLocalMongoose);
 
 // Creating a model for  the schema
 module.exports = mongoose.model('Registration', registrationSchema);
+
+/* 
+role: {
+    type: String,
+    default: "Agent",
+    enum: ["Agent", "Admin"]
+},
+
+*/

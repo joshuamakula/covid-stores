@@ -36,6 +36,7 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                     th(scope='col') Items
                     th(scope='col') Price
                     th(scope='col') Paid
+                    th(scope='col') Balance
                     th(scope='col') Ref Number 
                     th
             tbody
@@ -50,6 +51,7 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                         td #{customerlist.itemName}
                         td #{customerlist.price}
                         td #{customerlist.initialPay}
+                        td #{customerlist.price - customerlist.initialPay}
                         td #{customerlist.refNumber}                        
                         td 
                             form(method="post" action='/details/delete')
