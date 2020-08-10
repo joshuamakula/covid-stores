@@ -1,0 +1,122 @@
+doctype html
+html
+  head
+    title Covid Stores
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    style.
+      * {
+      margin: 0 auto;
+      }
+      body {
+      background-color: #f1f3f4;
+      font-family: sans-serif;
+      }
+      #head {
+      text-align: center;
+      color: orange;
+      }
+      label {
+      font-weight: bold;
+      width: 40%;
+      float: left;
+      }
+      legend {
+      font-weight: bold;
+      }
+  body(row="" justify-content-center="")
+    //- ------------------Nav bar--------------------
+    //- div(w3-include-html="/includes/nav.html")
+    .container
+      //- Title
+      .row
+        .col
+          .card-body
+            header.card-header
+              h1#head.card-title Add Product Item
+      .row
+        //- ----Side Bar----
+        .col-md-2
+        //-   div(w3-include-html="/includes/sidebar.html")
+        .col-md-6
+        each product in payBalance
+          form#addItem(action="/details/update/"+product._id method="POST" name="purDetails")
+            fieldset.form-group.border.p-2
+              legend.w-auto.border-primary Product Info
+              .form-group
+                .form-group
+                    //- label.form-control-label(for="cName") Customer Name:
+                    input#cName(type="hidden", placeholder="", name="cName", value=product.cName)
+                .form-group
+                    //- label.form-control-label(for="clocation") Location:
+                    input#clocation(type="hidden", placeholder="", name="clocation", value=product.clocation)
+                .form-group
+                    //- label.form-control-label(for="phone") Phone Number:
+                    input#phone(type="hidden", placeholder="", name="phone", value=product.phone)
+                .form-group
+                    //- label.form-control-label(for="email") Email:
+                    input#email(type="hidden", placeholder="", name="email", value=product.email)
+                .form-group
+                  //- label.form-control-label(for="nationalID") National ID:
+                  input#nationalID(type="hidden" name="nationalID" value=product.nationalID)
+                .form-group
+                    //- label.form-control-label(for="itemName") Item Name:
+                    input#itemName(type="hidden", placeholder="", name="itemName", value=product.itemName)
+                .form-group
+                  //- label.form-control-label(for="price") Cost Price:
+                  input#price(type="hidden" name="price" value=product.price)
+                .form-group
+                  //- label.form-control-label(for="initialPay") Initial Pay:
+                  input(type="hidden" value=product.initialPay)
+                .form-group
+                    //- label.form-control-label(for="serialNumber") Serial Number:
+                    input#serialNumber(type="hidden", placeholder="", name="serialNumber", value=product.serialNumber)
+                .form-group
+                    //- label.form-control-label(for="payDate") Date:
+                    input#payDate(type="hidden", placeholder="", name="payDate", value=product.payDate)
+                .form-group
+                    //- label.form-control-label(for="refNumber") Referee Number:
+                    input#refNumber(type="hidden", placeholder="", name="refNumber", value=product.refNumber)
+                .form-group
+                    //- label.form-control-label(for="purchaseReceipt") Receipt:
+                    input#purchaseReceipt(type="hidden", placeholder="", name="purchaseReceipt", value=product.purchaseReceipt)
+                
+                .form-group
+                  label.form-control-label(for="initialPay") Pay Balance:
+                  input#initialPay(type="text" name="initialPay")
+                  small#initialPayError.innerH
+                //- form-group
+                
+              .form-group
+                button.btn.btn-warning.btn-block(name="submit" type="submit") Pay Balance
+            //- fieldset
+
+        table.table
+            thead.thead-light
+                tr
+                    
+                    th(scope='col') Name
+                    th(scope='col') Phone No.
+                    th(scope='col') Items
+                    th(scope='col') Price
+                    th(scope='col') Paid
+                    th(scope='col') Balance
+                    th(scope='col') Ref Number 
+                    th
+            tbody
+                each customerlist in payBalance
+                    tr
+                        
+                        td #{customerlist.cName}
+                        td #{customerlist.phone}
+                        td #{customerlist.itemName}
+                        td #{customerlist.price}
+                        td #{customerlist.initialPay}
+                        td #{customerlist.price - customerlist.initialPay}
+                        td #{customerlist.refNumber}                        
+                        
+    //- --------------- Footer ----------------
+    //- div(w3-include-html="/includes/footer.html")
+    script(src="/js/validateAddItem.js")
+    script(src="/js/navnfooter.js")

@@ -92,8 +92,8 @@ function registersalesAgent() {
     empPasswordAgain = document.salesAgent.empPasswordAgain;
 
     // validating Agents First Name
-    var mynum = /^[A-Za-z]+$/;
-    if (!firstName.value.match(mynum)) {
+    var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
+    if (!firstName.value.match(alpha)) {
         firstName.style.border = '1px solid red';
         document.getElementById("fname").innerHTML = "First Name of the item should characters only, no numbers";
         

@@ -98,20 +98,20 @@ html
                   small#serialNumberi.innerH
                 // form-group
                 .form-group
-                  label.form-control-label(for="payDate") Date of Pay: 
-                  input#payDate.form-control.form-inputt(type="date" name="payDate")
+                  //- label.form-control-label(for="payDate") Date of Pay: 
+                  input#payDate.form-control.form-inputt(type="hidden" name="payDate" value= Date())
                   small#payDatei.innerH
                 // form-group
                 .form-group
-                  label.form-control-label(for="refNumber")
+                  //- label.form-control-label(for="refNumber")
                     | Referee Number:
-                  input#refNumber.form-control.form-inputt(type="text" name="refNumber")
+                  input#refNumber.form-control.form-inputt(type="hidden" name="refNumber" value=Math.floor(Math.random() * 10000000))
                   small#refNumberi.innerH
                 // form-group
                 .form-group
-                  label.form-control-label(for="purchaseReceipt")
+                  //- label.form-control-label(for="purchaseReceipt")
                     | Purchase Receipt:
-                  input#purchaseReceipt.form-control.form-inputt(type="text" name="purchaseReceipt")
+                  input#purchaseReceipt.form-control.form-inputt(type="hidden" name="purchaseReceipt" value=Math.floor(Math.random() * 10000000))
                   small#purchaseReceipti.innerH
                 // form-group
               .form-group

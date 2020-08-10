@@ -14,13 +14,13 @@ function purchaseDetailsValidation() {
     refNumber = document.purDetails.refNumber;
     purchaseReceipt = document.purDetails.purchaseReceipt;
 
+    // var randomNum = Math.floor(Math.random() * 10);
+    // Math.round(Math.rondom()*1000)
+
     
-
-    balance = price - initialPay
-
     // validating Item Name
-    var p_cName = /^[A-Za-z]+$/;
-    if (!cName.value.match(p_cName)) {
+    var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
+    if (!cName.value.match(alpha)) {
         cName.style.border = '1px solid red';
         document.getElementById("cNamei").innerHTML = "Name of the item should characters only";
 
@@ -84,10 +84,20 @@ function purchaseDetailsValidation() {
 
         return false;
     }
-
-    if (initialPay.value < (price / 2)) {
+    // Making sure the Initial Pay is atleast 50% of the Cost
+    if (initialPay.value < (price.value / 2)) {
         initialPay.style.border = '1px solid red';
-        document.getElementById("initialPayi").innerHTML = "Initial pay must be atleast 50% of the price";
+        document.getElementById("initialPayi").innerHTML = "Initial pay must be atleast 50% of the Cost Price Above";
+
+        return false;
+    }
+
+    // Making sure the Initial Pay is not greater than the Cost Price
+    if (initialPay.value > (price.value)) {
+        initialPay.style.border = '1px solid red';
+        document.getElementById("initialPayi").innerHTML = "Initial pay can not be greater the Cost Price Above";
+
+        return false;
     }
 
     // validating Iem serial number
@@ -102,20 +112,20 @@ function purchaseDetailsValidation() {
 
 
     // validating Referee Number
-    if (!refNumber.value.match(num)) {
+    /* if (!refNumber.value.match(num)) {
         refNumber.style.border = '1px solid red';
         document.getElementById("refNumberi").innerHTML = "Incorrect referee number";
-        
+
         return false;
-    }
+    } */
 
     // validating purchase Receipt
-    if (!purchaseReceipt.value.match(num)) {
+   /*  if (!purchaseReceipt.value.match(num)) {
         purchaseReceipt.style.border = '1px solid red';
         document.getElementById("purchaseReceipti").innerHTML = "Incorrect Purchase Receipt";
 
         return false;
-    }
+    } */
 
-    
+
 }

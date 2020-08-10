@@ -128,24 +128,10 @@ router.get('/productUpdate/:id', async (req, res) => {
     }
 })
 
-//  Sells route
-router.get('/sale/:id', async (req, res) => {
-    try {
-        let items = await AddItem.find({
-            _id: req.params.id
-        })
-        res.render('sale', {
-            productlists: items
-        })
-    } catch (error) {
-        console.log(error)
-        res.status(400).send("Unable to get sale page")
-    }
-})
 
 // Updating the Product list
 router.post('/update/:id', upload.single('itemPhoto'), async (req, res) => {
-    // const changedEntry = req    
+    
     try {
         await AddItem.updateOne({
             _id: req.params.id
@@ -172,6 +158,20 @@ router.post('/update/:id', upload.single('itemPhoto'), async (req, res) => {
     }
 })
 
+//  Sales route
+router.get('/sale/:id', async (req, res) => {
+    try {
+        let items = await AddItem.find({
+            _id: req.params.id
+        })
+        res.render('sale', {
+            productlists: items
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send("Unable to get sale page")
+    }
+})
 
 
 

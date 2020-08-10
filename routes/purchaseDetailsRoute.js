@@ -34,6 +34,7 @@ router.get('/', async (req, res) => {
 
 // Customer details route
 router.post('/', async (req, res) => {
+    
     const customerDetails = new CustomerDetails(req.body);
     try {
         await customerDetails.save()
@@ -68,6 +69,57 @@ router.get('/customerlists', async (req, res) => {
     }
 })
 
+//  Pay Balance route
+router.get('/balance/:id', async (req, res) => {
+    try {
+        let items = await CustomerDetails.find({
+            _id: req.params.id
+        })
+        res.render('payBalance', {
+            payBalance: items
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send("Unable to get Pay Balance page")
+    }
+})
+
+// Updating the Customer Balance
+router.post('/update/:id', async (req, res) => {
+    try {
+        await CustomerDetails.updateOne({
+            _id: req.params.id
+        }, {
+                $set:
+                {
+               /*  cName: req.body.cName,
+                clocation: req.body.clocation,
+                phone: req.body.phone,
+                email: req.body.email,
+                nationalID: req.body.nationalID,
+                itemName: req.body.itemName,
+                price: req.body.price, */
+                initialPay: req.body.initialPay
+                /* serialNumber: req.body.serialNumber,
+                payDate: req.body.payDate,
+                refNumber: req.body.refNumber,
+                purchaseReceipt: req.body.purchaseReceipt */
+                
+            }
+        }, (err, result) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    console.log(req.body)
+                    res.redirect("/details/customerlists")
+                }
+        })
+        
+    } catch (error) {
+        console.log(error)
+        res.status(400).send("Unable to update Customer Balance")
+    }
+})
 
 // Delete customer route
 router.post('/delete', async (req, res) => {

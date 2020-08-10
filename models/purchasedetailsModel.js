@@ -41,7 +41,7 @@ const customerDetailsSchema = new mongoose.Schema({
         type: String
     },
     payDate: {
-        type: String
+        type: Date
     },
     refNumber: {
         type: String,

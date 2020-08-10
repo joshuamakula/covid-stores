@@ -23,18 +23,32 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
   .bg-light
     h1#head Covid Stores Product List
   .row
-    
-    .col-md
-        form.search(action='/addItem/itemSearch')
-                div.form-row
-                    div.col-md-8
-                        input.form-control(name='itemName' placeholder="Enter your search term(itemName) ...")
-                    div.col-md-4
-                        input.btn.btn-dark.btn-block(type="submit")
+    .col-md-2
+      div(class="side-bar")
+        form(action="/details")
+          button(class="btn btn-secondary btn-block") purchase Details
+      div(class="side-bar")
+        form(action="/register")
+          button(class="btn btn-secondary btn-block") Register Sales Agent
+      div(class="side-bar")
+        form(action="/addItem")
+          button(class="btn btn-secondary btn-block") Add Product
+      div(class="side-bar")
+        form(action="/addItem/productlists" type="submit")
+          button(class="btn btn-secondary btn-block") Product List
+      div(class="side-bar")
+        form(action="/register/agents" type="submit")
+          button(class="btn btn-secondary btn-block") Agents List
+      div(class="side-bar")
+        form(action="/details/customerlists" type="submit")
+          button(class="btn btn-secondary btn-block") Customers List
+   
+    .col-md-2
+        
         table.table
             thead.thead-light
                 tr
-                    th(scope='col') #
+                    
                     th(scope='col') Item Name
                     th(scope='col') Make
                     th(scope='col') Category
@@ -43,14 +57,19 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                     th(scope='col') Item Color
                     th(scope='col') Itemms in Stock
                     th(scope='col') Photo
-                    th
-                    th
-                    th
+                    th(colspan="3")
+                      form.search(action='/addItem/itemSearch')
+                        div.form-row
+                            div.col-md-8
+                                input.form-control(name='itemName' placeholder="Search itemName")
+                            div.col-md-4
+                                button.btn.btn-dark.btn-block(type="submit") Search
+                    
             tbody
                 each productlist in productlists
                 
                     tr
-                        th(scope='row')
+                        
                         td #{productlist.itemName}
                         td #{productlist.itemMake}
                         td #{productlist.category}
@@ -108,8 +127,8 @@ section.footer
     hr
     p.copyright
       | Made by 
-      i.fa.fa-heart-o
-      | Joshua Makula
+      i.fa.fa-heart-o 
+      | Joshua Makula &copy; 2020
 
 script(src='bootstrap/js/bootstrap.js')
 script(src='bootstrap/js/jquery-3.5.1.slim.min.js')

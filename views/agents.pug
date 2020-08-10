@@ -23,7 +23,26 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
   .bg-light
     h1#head Registered Sales Agents
   .row
-    
+    .col-md-2
+      div(class="side-bar")
+        form(action="/details")
+          button(class="btn btn-secondary btn-block") purchase Details
+      div(class="side-bar")
+        form(action="/register")
+          button(class="btn btn-secondary btn-block") Register Sales Agent
+      div(class="side-bar")
+        form(action="/addItem")
+          button(class="btn btn-secondary btn-block") Add Product
+      div(class="side-bar")
+        form(action="/addItem/productlists" type="submit")
+          button(class="btn btn-secondary btn-block") Product List
+      div(class="side-bar")
+        form(action="/register/agents" type="submit")
+          button(class="btn btn-secondary btn-block") Agents List
+      div(class="side-bar")
+        form(action="/details/customerlists" type="submit")
+          button(class="btn btn-secondary btn-block") Customers List
+ 
 
     .col-md
         table.table
@@ -84,8 +103,8 @@ section.footer
     hr
     p.copyright
       | Made by 
-      i.fa.fa-heart-o
-      | Joshua Makula
+      i.fa.fa-heart-o 
+      | Joshua Makula &copy; 2020
 
 script(src='bootstrap/js/bootstrap.js')
 script(src='bootstrap/js/jquery-3.5.1.slim.min.js')
