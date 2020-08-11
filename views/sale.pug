@@ -42,7 +42,7 @@ html
       .row
         // ----Side Bar----
         .col-md-2
-          div(w3-include-html="/includes/sidebar.html")
+          div(w3-include-html='/includes/sidebar.html')
         .col-md-6            
           form#purDetails(action="/details" method="POST" name="purDetails")
             fieldset.form-group.border.p-2
@@ -90,6 +90,7 @@ html
                   input#initialPay.form-control.form-inputt(type="text" name="initialPay")
                   small#initialPayi.innerH
                 // form-group
+                
                   input(type="hidden", placeholder="", name="id", value=productlist._id)
                 .form-group
                   label.form-control-label(for="serialNumber") Item Serial Number:

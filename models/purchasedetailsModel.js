@@ -33,10 +33,6 @@ const customerDetailsSchema = new mongoose.Schema({
         type: Number,
         trim: true,
     },
-    balance: {
-        type: Number,
-        trim: true,
-    },
     serialNumber: {
         type: String
     },

@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <form action="/login" method="POST">
                         <header class="card-header">
-                            <h1 class="card-title" id="login-head">Covid Stores</h1>
+                            <h1 class="card-title" id="login-head" name="loginForm">Covid Stores</h1>
                         </header>
 
                         <fieldset class="form-group border p-2">
@@ -49,22 +49,23 @@
                             <div class="form-group">
                                 <label class="col-form-label text-md-right" for="username">User Name</label>
                                 <div class="">
-                                    <input class="form-control" type="text" name="username" id="username"
-                                        placeholder="User Name">
+                                    <input class="form-control" type="text" name="username" id="username" required>
+                                    <small class="innerH" id="usernameerr"></small>
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label text-md-right" for="password">Password</label>
                                 <div class="">
-                                    <input class="form-control" type="password" name="password" id="password"
-                                        placeholder="Password">
+                                    <input class="form-control" type="password" name="password" id="password" required>
+                                    <small class="innerH" id="passworderr"></small>
                                 </div>
 
                             </div>
                             <div class="form-group">
 
-                                <button class=" btn btn-warning btn-block" type="submit">Login</button>
+                                <button class=" btn btn-warning btn-block" type="submit"
+                                    onclick="return loginValidate()">Login</button>
 
                             </div>
 
@@ -81,7 +82,7 @@
     <!----------------- Footer ------------------>
     <div w3-include-html="/includes/footer.html"></div>
 
-    <script src="/js/validate.js"></script>
+    <script src="/js/loginValidate.js"></script>
     <script src="/js/navnfooter.js"></script>
 
 

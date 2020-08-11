@@ -109,13 +109,6 @@ app.get('/logout', (req, res) => {
 })
 
 
-
-// route homepage using fat arrow 
-// app.get('/', (req, res) => {
-//     res.render('index.pug');
-
-// })
-
 // Display items on product page
 app.get('/', async (req, res) => {
     try {
@@ -154,24 +147,6 @@ app.get('/manager', async(req, res) => {
                 })
 
 
-
-/*             app.post('/managerDash', (req, res) => {
-                console.log(req.body)
-                res.sendFile('/managerDash.html', {
-                    root: view
-                })
-
-            })
-
-            // Listening request from server
-            // Post the login form
-            app.post('/manager', (req, res) => {
-                console.log(req.body)
-                res.sendFile('/managerDash.html', {
-                    root: view
-                })
-
-            }) */
 
             // Get the login form
             app.get('/sales', (req, res) => {

@@ -14,9 +14,6 @@ function purchaseDetailsValidation() {
     refNumber = document.purDetails.refNumber;
     purchaseReceipt = document.purDetails.purchaseReceipt;
 
-    // var randomNum = Math.floor(Math.random() * 10);
-    // Math.round(Math.rondom()*1000)
-
     
     // validating Item Name
     var alpha = /^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$/
@@ -54,18 +51,17 @@ function purchaseDetailsValidation() {
         return false;
     }
 
-    // validatin Agents National ID
-    var carNum = /^[0-9A-Z]+$/;
-    if (!nationalID.value.match(carNum)) {
+    // validatin Customer's National ID
+    var anid = /^[A-Z]{3}[0-9]{1,8}[A-Z]*$/;
+    if (!nationalID.value.match(anid)) {
         nationalID.style.border = '1px solid red';
-        document.getElementById("clocationi").innerHTML = "Invalid National ID";
-        // validating national id length
-        if (nationalID.value.length < 13 || nationalID.value.length > 13) {
-            nationalID.style.border = '1px solid red';
-            document.getElementById("nationalIDi").innerHTML = "National ID should be 13 Alpha-numerals";
+        document.getElementById("nationalIDi").innerHTML = "Invalid National ID";
+    }
 
-            return false;
-        }
+    // checking whether the National ID characters are 13 in tatal
+    if (nationalID.value.length != 13) {
+        nationalID.style.border = '1px solid red';
+        document.getElementById("nationalIDi").innerHTML = "National ID should be 13 Characters";
     }
 
     // validating Item Name
@@ -80,7 +76,7 @@ function purchaseDetailsValidation() {
     var num = /^[0-9]+$/;
     if (!initialPay.value.match(num)) {
         initialPay.style.border = '1px solid red';
-        document.getElementById("initialPayi").innerHTML = "Enter correct inital pay";
+        document.getElementById("initialPayi").innerHTML = "Enter correct Inital Pay";
 
         return false;
     }
@@ -108,24 +104,5 @@ function purchaseDetailsValidation() {
 
         return false;
     }
-
-
-
-    // validating Referee Number
-    /* if (!refNumber.value.match(num)) {
-        refNumber.style.border = '1px solid red';
-        document.getElementById("refNumberi").innerHTML = "Incorrect referee number";
-
-        return false;
-    } */
-
-    // validating purchase Receipt
-   /*  if (!purchaseReceipt.value.match(num)) {
-        purchaseReceipt.style.border = '1px solid red';
-        document.getElementById("purchaseReceipti").innerHTML = "Incorrect Purchase Receipt";
-
-        return false;
-    } */
-
 
 }

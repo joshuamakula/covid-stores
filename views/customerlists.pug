@@ -24,25 +24,8 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
     h1#head Customer Details List
   .row
     .col-md-2
-      div(class="side-bar")
-        form(action="/details")
-          button(class="btn btn-secondary btn-block") purchase Details
-      div(class="side-bar")
-        form(action="/register")
-          button(class="btn btn-secondary btn-block") Register Sales Agent
-      div(class="side-bar")
-        form(action="/addItem")
-          button(class="btn btn-secondary btn-block") Add Product
-      div(class="side-bar")
-        form(action="/addItem/productlists" type="submit")
-          button(class="btn btn-secondary btn-block") Product List
-      div(class="side-bar")
-        form(action="/register/agents" type="submit")
-          button(class="btn btn-secondary btn-block") Agents List
-      div(class="side-bar")
-        form(action="/details/customerlists" type="submit")
-          button(class="btn btn-secondary btn-block") Customers List
- 
+      div(w3-include-html='/includes/sidebar.html')
+
     .col-md
         table.table
             thead.thead-light
@@ -64,9 +47,9 @@ button#myBtn(onclick='topFunction()', title='Go to top') Top
                         td #{customerlist.cName}
                         td #{customerlist.phone}
                         td #{customerlist.itemName}
-                        td #{customerlist.price}
-                        td #{customerlist.initialPay}
-                        td #{(customerlist.price) - (customerlist.initialPay)}
+                        td #{customerlist.price}.00 ugx
+                        td #{customerlist.initialPay}.00 ugx
+                        td #{(customerlist.price) - (customerlist.initialPay)}.00 ugx
                         td #{customerlist.refNumber}
                         td 
                           form(method="get" action='/details/balance/'+customerlist._id)

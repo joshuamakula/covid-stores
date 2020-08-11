@@ -38,8 +38,8 @@ html
       .row
         //- ----Side Bar----
         .col-md-2
-        //-   div(w3-include-html="/includes/sidebar.html")
-        .col-md-6
+          div(w3-include-html='/includes/sidebar.html')
+        
         each product in productlists
           form#addItem(action="/addItem/update/"+product._id method="POST" name="addItem" enctype="multipart/form-data")
             fieldset.form-group.border.p-2
@@ -105,7 +105,7 @@ html
                   input#itemPhoto(type="file" name="itemPhoto" value=product.itemPhoto)
                 //- form-group
               .form-group
-                button.btn.btn-warning.btn-block(name="submit" type="submit" onclick="return validateAddItem()") Submit
+                button.btn.btn-warning.btn-block(name="submit" type="submit" onclick="return validateAddItem()") Update
             //- fieldset
     //- --------------- Footer ----------------
     //- div(w3-include-html="/includes/footer.html")
