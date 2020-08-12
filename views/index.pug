@@ -10,7 +10,22 @@ html
 	body
 		button#myBtn(onclick="topFunction()" title="Go to top") Top
 		//- ---------Nav bar-------
-		div(w3-include-html="/includes/nav.html")
+		nav.navbar.navbar-expand-lg.navbar-light(style="background-image: url('../images/headbg.png');background-size: cover;")
+			a.navbar-brand(href="/")
+				img(src="../images/logo1.png" alt="" height="50px" width="150px" style="padding: 0;")
+			button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+				span.navbar-toggler-icon
+			#navbarSupportedContent.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item.active
+						a.nav-link(href="#")  
+					li.nav-item
+						a.nav-link(href="")
+					li.nav-item.dropdown
+				form.form-inline.my-2.my-lg-0
+					input.form-control.mr-sm-2(type="search" placeholder="Search" aria-label="Search")
+					button.btn.btn-outline-success.my-2.my-sm-0.bg-success.text-white(type="submit") Search
+
 
 		.container(style="padding-top:30px;")
 			.row
