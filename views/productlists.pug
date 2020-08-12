@@ -6,22 +6,22 @@ link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7
 style.
   
   #head {
-   			color: orange;
+   			color: #081930;
+        font-weight: bold;
    			text-align: center;
    		}
   
 button#myBtn(onclick='topFunction()', title='Go to top') Top
 //  ---------Nav bar------- 
-.top-nav-bar.navbar.navbar-expand-lg
-  a(href='/')
-    img.logo(src='/images/logo.png', alt)
-  .search-box
-    input.search-form-control(type='text')
-    span.input-group-text
-      i.fa.fa-search Search
+div(w3-include-html="/includes/nav.html")
+
 .container
-  .bg-light
-    h1#head Covid Stores Product List
+  // Title
+  .row
+    .col
+      .card-body
+        header.card-header
+          h1#head.card-title Covid Stores Product List
   .row
     .col-md-2
       div(w3-include-html='/includes/sidebar.html')

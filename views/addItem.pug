@@ -1,0 +1,119 @@
+doctype html
+html
+  head
+    title Add Item - Covid Stores
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    style.
+      * {
+      margin: 0 auto;
+      }
+      body {
+      background-color: #f1f3f4;
+      font-family: sans-serif;
+      }
+      #head {
+      text-align: center;
+      color: #081930;
+      font-weight: bold;
+      }
+      label {
+      font-weight: bold;
+      width: 40%;
+      float: left;
+      }
+      legend {
+      font-weight: bold;
+      }
+  body(row="" justify-content-center="")
+    // ------------------Nav bar--------------------
+    div(w3-include-html="/includes/nav.html")
+    .container
+      // Title
+      .row
+        .col
+          .card-body
+            header.card-header
+              h1#head.card-title Add Product Item
+      .row
+        // ----Side Bar----
+        .col-md-2
+          div(w3-include-html="/includes/sidebar.html")
+        .col-md-6
+          form#addItem(action="/addItem" method="POST" name="addItem" enctype="multipart/form-data")
+            fieldset.form-group.border.p-2
+              legend.w-auto.border-primary Product Info
+              .form-group
+                .form-group
+                  label.form-control-label(for="C") Item Name: 
+                  input#itemName(type="text" name="itemName" placeholder="Aphabets Only")
+                  small#nameError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="make") Make: 
+                  input#itemMake(type="text" name="itemMake" placeholder="Two Capital letters eg.UG")
+                  small#makeError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="entryDate") Date of Entry: 
+                  input#entryDate(name="entryDate" type="text"  value= Date())
+                  small#dateError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="category") Category: 
+                  select#category(name="category")
+                    option(value="0") Select Category
+                    option(value="1") Furniture
+                    option(value="2") Fashion
+                    option(value="3") Fitness Kits
+                    option(value="4") Machinery
+                    option(value="5") TV Sets
+                    option(value="6") Home Theater
+                  small#catError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="serial-number")
+                    | Serial Number:
+                  input#serialNumber(type="text" name="serialNumber" placeholder="Between 6 and 10 Numbers")
+                  small#serialError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="price")
+                    | Price:
+                  input#price(type="text" name="price" placeholder="0000")
+                  small#priceError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="itemColor") Item Color: 
+                  input#itemColor(type="text" name="itemColor" placeholder="eg.Black")
+                  small#colorError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="itemDesc")
+                    | Item Description:
+                  textarea#itemDesc(name="itemDesc" cols="23" rows="2" placeholder="Item Description")
+                  small#descError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="numStock")
+                    | Number in Stock:
+                  input#numStock(type="text" name="numStock" placeholder="Numbers Only")
+                  small#stockError.innerH
+                // form-group
+                .form-group
+                  label.form-control-label(for="itemPhoto")
+                    | Item Photo:
+                  input#itemPhoto(type="file" name="itemPhoto")
+                  small#photoError.innerH
+                // form-group
+              .form-group
+                button.btn.btn-block.text-white(name="submit" type="submit" style="background-color: #081930;" onclick="return validateAddItem()") Add Item
+            // fieldset
+    // --------------- Footer ----------------
+    div(w3-include-html="/includes/footer.html")
+    script(src="/js/validateAddItem.js")
+    script(src="/js/navnfooter.js")
+    script.
+      var date = new Date();
+      var today = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

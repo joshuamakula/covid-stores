@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    title Covid Stores
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    style.
+      * {
+      margin: 0 auto;
+      }
+      body {
+      background-color: #f1f3f4;
+      font-family: sans-serif;
+      }
+      #head {
+      text-align: center;
+      color: #081930;
+      font-weight: bold;
+      }
+      label {
+      font-weight: bold;
+      width: 40%;
+      }
+      legend {
+      font-weight: bold;
+      }
+  body
+    div(w3-include-html="/includes/nav.html")
+    // ------------------Nav bar--------------------
+    .container
+      .row
+        .col
+          .card-body
+            header.card-header
+              h1#head.card-title Register Sales Agent
+      .row
+        // ----Side Bar----
+        .col-md-2
+          div(w3-include-html="/includes/sidebar.html")
+        .col-md-6
+          form#salesAgent(action="/register/agents" method="POST" name="salesAgent" onsubmit="return registersalesAgent()")
+            fieldset.form-group.border.p-2
+              legend.w-auto.border-primary Agent's Details
+              .form-group
+                .form-group
+                  label.form-control-label(for="firstName") Name
+                  input#firstName(type="text" name="firstName" placeholder="Alphabets Only")
+                  br
+                  small#fname.innerH
+                // --------form-group--------
+                .form-group
+                  label.form-control-label(for="lastName")  User Name
+                  input#username(type="text" name="username" placeholder="Alphabets Only")
+                  br
+                  small#lname.innerH
+                // --------form-group--------
+                .form-group
+                  label.form-control-label(for="nationalID") National ID. No.
+                  input#nationalID(type="text" name="nationalID" placeholder="3 capital letters, 8 numbers, and 2 capital letters")
+                  br
+                  small#nID.innerH
+                // --------form-group--------
+                .form-group
+                  //-label.form-control-label(for="employeeID") Employee ID No.
+                  input#employeeID(type="hidden" name="employeeID" value=Math.floor(Math.random() * 10000000))
+                  
+                  
+                // --------form-group--------
+                .form-group
+                  label.form-control-label(for="empPassword") Password
+                  input#password(type="password" name="password" placeholder="simillar to Password Again")
+                  br
+                  small#pass.innerH
+                // --------form-group--------
+                .form-group
+                  label.form-control-label(for="empPasswordAgain") Password Again
+                  input#empPasswordAgain(type="password" name="empPasswordAgain" placeholder="simillar to password")
+                  br
+                  small#passAgain.innerH
+                // --------form-group--------
+                .form-group
+                  //-input.btn.btn-warning.btn-block(type="submit")
+                  button.btn.btn-block.text-white(name="submit" type="submit" style="background-color: #081930;") Register
+
+                // --------form-group--------
+    // --------------- Footer ----------------
+    div(w3-include-html="/includes/footer.html")
+    script(src="/js/validate.js")
+    script(src="/js/navnfooter.js")

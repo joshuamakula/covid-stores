@@ -6,43 +6,26 @@ link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7
 style.
   
   #head {
-   			color: orange;
+   			color: #081930;
+        font-weight: bold;
    			text-align: center;
    		}
   
 button#myBtn(onclick='topFunction()', title='Go to top') Top
-//  ---------Nav bar------- 
-.top-nav-bar.navbar.navbar-expand-lg
-  a(href='/')
-    img.logo(src='/images/logo.png', alt)
-  .search-box
-    input.search-form-control(type='text')
-    span.input-group-text
-      i.fa.fa-search Search
+
+// ------------------Nav bar--------------------
+div(w3-include-html="/includes/nav.html")
+
 .container
-  .bg-light
-    h1#head Registered Sales Agents
+  // Title
+  .row
+    .col
+      .card-body
+        header.card-header
+          h1#head.card-title Registered Sales Agents
   .row
     .col-md-2
       div(w3-include-html='/includes/sidebar.html')
-      //- div(class="side-bar")
-      //-   form(action="/details")
-      //-     button(class="btn btn-secondary btn-block") purchase Details
-      //- div(class="side-bar")
-      //-   form(action="/register")
-      //-     button(class="btn btn-secondary btn-block") Register Sales Agent
-      //- div(class="side-bar")
-      //-   form(action="/addItem")
-      //-     button(class="btn btn-secondary btn-block") Add Product
-      //- div(class="side-bar")
-      //-   form(action="/addItem/productlists" type="submit")
-      //-     button(class="btn btn-secondary btn-block") Product List
-      //- div(class="side-bar")
-      //-   form(action="/register/agents" type="submit")
-      //-     button(class="btn btn-secondary btn-block") Agents List
-      //- div(class="side-bar")
-      //-   form(action="/details/customerlists" type="submit")
-      //-     button(class="btn btn-secondary btn-block") Customers List
  
 
     .col-md

@@ -12,15 +12,34 @@ html
 		//- ---------Nav bar-------
 		div(w3-include-html="/includes/nav.html")
 
-		section(class="new-products")
-			div(class="container")
-				div(class="title-box")
-					h2 LTPP	
+		.container(style="padding-top:30px;")
+			.row
+				.col-md
+					#carouselExampleSlidesOnly.carousel.slide(data-ride="carousel")
+						.carousel-inner
+							.carousel-item.active
+								img.d-block.w-100(src="../images/slider.png" alt="...")
+							
+
+				.col-md
+					#carouselExampleSlidesOnly.carousel.slide(data-ride="carousel")
+						.carousel-inner
+							.carousel-item.active
+								img.d-block.w-100(src="../images/slider1.png" alt="...")
+
+
+
+
+
+		//-section(class="new-products" style="padding:50px;")
+		.container.new-products
+			div(class="title-box" style="padding-bottom:0")
+				h2 LTPP	
 		each productlist in productlists
 			-var count = 0;
 			div(class="row")
 			if count <= 2
-				div(class="col-md-3" style="float:left")
+				div(class="col-md-3" style="float:left; padding-top:30px;")
 				
 					div(class="product-top")
 						img(src=productlist.itemPhoto, alt="", style="width:250px")
@@ -44,16 +63,13 @@ html
 					
 
 		
-		// Featured Products
-		//- section(class="feature-categories")
-		//- 	div(class="container")
-		//- 		div(class="row")
-		//- 			div(class="col-md-4")
-		//- 				img(src="images/homeTheter1.jpg" alt="")
-		//- 			div(class="col-md-4")
-		//- 				img(src="images/tv1.jpg" alt="")
-		//- 			div(class="col-md-4")
-		//- 				img(src="images/watch1.jpg" alt="")
+		.container(style="padding-top:30px;")
+			.row
+				.col-md
+					#carouselExampleSlidesOnly.carousel.slide(data-ride="carousel")
+						.carousel-inner
+							.carousel-item.active
+								img.d-block.w-100(src="../images/ad.jpg" alt="...")
 
 		
 
@@ -185,3 +201,7 @@ section.footer
 
 		script(src="/js/scrolltotop.js")
 		script(src="/js/navnfooter.js")
+		script(src="/bootstrap/js/bootstrap.js")
+		script(src="/bootstrap/js/jquery-3.5.1.slim.min.js")
+		script(src="/bootstrap/js/popper.min.js")
+

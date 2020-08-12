@@ -19,7 +19,7 @@ function validateAddItem() {
     // validating Item Name
     if (!itemName.value.match(alpha)) {
         itemName.style.border = '1px solid red';
-        document.getElementById("nameError").innerHTML = "Item name should be filled with characters only";
+        document.getElementById("nameError").innerHTML = "Item name should be alphabets only";
 
         return false;
     }

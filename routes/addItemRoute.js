@@ -34,9 +34,7 @@ router.get('/', async (req, res) => {
                     firstName: req.query.firstName
                 })
             }
-            res.sendFile('/addItem.html', {
-                root: view
-            })
+            res.render('addItem')
         } catch (err) {
             res.status(400).send("unable to find items in the database");
         }

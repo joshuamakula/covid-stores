@@ -22,9 +22,7 @@ router.get('/', async (req, res) => {
                     firstName: req.query.firstName
                 })
             }
-            res.sendFile('/registerSalesAgent.html', {
-                root: view
-            })
+            res.render('registerSalesAgent')
         } catch (err) {
             res.status(400).send("Unauthorized Access");
         }
