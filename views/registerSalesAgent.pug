@@ -36,7 +36,7 @@ html
               h1#head.card-title Register Sales Agent
       .row
         // ----Side Bar----
-        .col-md-2
+        .col-md-3
           div(w3-include-html="/includes/sidebar.html")
         .col-md-6
           form#salesAgent(action="/register/agents" method="POST" name="salesAgent" onsubmit="return registersalesAgent()")
@@ -69,15 +69,15 @@ html
                 // --------form-group--------
                 .form-group
                   label.form-control-label(for="empPassword") Password
-                  input#password(type="password" name="password" placeholder="simillar to Password Again")
+                  input#password(type="password" name="password")
                   br
                   small#pass.innerH
                 // --------form-group--------
-                .form-group
-                  label.form-control-label(for="empPasswordAgain") Password Again
-                  input#empPasswordAgain(type="password" name="empPasswordAgain" placeholder="simillar to password")
-                  br
-                  small#passAgain.innerH
+                //- .form-group
+                //-   label.form-control-label(for="empPasswordAgain") Password Again
+                //-   input#empPasswordAgain(type="password" name="empPasswordAgain" placeholder="simillar to password")
+                //-   br
+                //-   small#passAgain.innerH
                 // --------form-group--------
                 .form-group
                   //-input.btn.btn-warning.btn-block(type="submit")

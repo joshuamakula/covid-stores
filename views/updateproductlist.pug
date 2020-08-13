@@ -15,7 +15,8 @@ html
       }
       #head {
       text-align: center;
-      color: orange;
+      color: #081930;
+      font-weight: bold;
       }
       label {
       font-weight: bold;
@@ -37,7 +38,7 @@ html
               h1#head.card-title Add Product Item
       .row
         //- ----Side Bar----
-        .col-md-2
+        .col-md-3
           div(w3-include-html='/includes/sidebar.html')
         
         each product in productlists
@@ -105,9 +106,9 @@ html
                   input#itemPhoto(type="file" name="itemPhoto" value=product.itemPhoto)
                 //- form-group
               .form-group
-                button.btn.btn-warning.btn-block(name="submit" type="submit" onclick="return validateAddItem()") Update
+                button.btn.btn-block.text-white(name="submit" type="submit" style="background-color: #081930;" onclick="return validateAddItem()") Update
             //- fieldset
     //- --------------- Footer ----------------
-    //- div(w3-include-html="/includes/footer.html")
+  div(w3-include-html="/includes/footer.html")
     script(src="/js/validateAddItem.js")
     script(src="/js/navnfooter.js")

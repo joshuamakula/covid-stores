@@ -19,30 +19,11 @@ const registrationSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
-    /* password: {
-        type: String,
-        trim: true,
-    }, */
-    /* empPasswordAgain: {
-        type: String,
-        trim: true,
-    }, */
+    
 
 });
 
 registrationSchema.plugin(passportLocalMongoose);
-/* registrationSchema.plugin(passportLocalMongoose, {
-    usernameField: 'lastName'
-}) */
 
 // Creating a model for  the schema
 module.exports = mongoose.model('Registration', registrationSchema);
-
-/* 
-role: {
-    type: String,
-    default: "Agent",
-    enum: ["Agent", "Admin"]
-},
-
-*/

@@ -38,9 +38,9 @@ html
               h1#head.card-title Pay Balance
       .row
         //- ----Side Bar----
-        .col-md-2
-        //-   div(w3-include-html="/includes/sidebar.html")
-        .col-md-6
+        .col-md-3
+          div(w3-include-html="/includes/sidebar.html")
+        .col-md
         each product in payBalance
           form#addItem(action="/details/update/"+product._id method="POST" name="purDetails")
             fieldset.form-group.border.p-2

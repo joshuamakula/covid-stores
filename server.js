@@ -39,7 +39,7 @@ app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Passport configs
+// use static serialize and deserialize of model for passport session support
 passport.use(Register.createStrategy());
 passport.serializeUser(Register.serializeUser());
 passport.deserializeUser(Register.deserializeUser());

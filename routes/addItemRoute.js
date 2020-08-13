@@ -82,7 +82,7 @@ router.get('/productlists', async (req, res) => {
     }
 })
 
-// Search route
+// Search route that searches throught the product list using the item name
 router.get('/itemSearch', async (req, res) => {
     try {
         let items = await AddItem.find()
@@ -111,7 +111,8 @@ router.post('/delete', async (req, res) => {
     }
 })
 
-//  Product update route
+//  Product update route which takes you from the update button to updateProductlist.pug page 
+// which allows the user to update the product details
 router.get('/productUpdate/:id', async (req, res) => {
     try {
         let items = await AddItem.find({
@@ -127,7 +128,7 @@ router.get('/productUpdate/:id', async (req, res) => {
 })
 
 
-// Updating the Product list
+// Updating a single product including the product photo
 router.post('/update/:id', upload.single('itemPhoto'), async (req, res) => {
     
     try {
@@ -156,7 +157,9 @@ router.post('/update/:id', upload.single('itemPhoto'), async (req, res) => {
     }
 })
 
-//  Sales route
+/* 
+    Route thate takes you from the sales button to sale.pug file
+*/
 router.get('/sale/:id', async (req, res) => {
     try {
         let items = await AddItem.find({
